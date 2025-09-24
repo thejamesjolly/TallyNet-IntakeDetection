@@ -1,4 +1,5 @@
-tensorflow
+keras<3.0.0
+tensorflow==2.4.0
 tensorflow_addons
 tensorflow_ctc_ext_beam_search_decoder
 psutil

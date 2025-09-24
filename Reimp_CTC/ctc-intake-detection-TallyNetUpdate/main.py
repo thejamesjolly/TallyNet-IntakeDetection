@@ -9,7 +9,7 @@ from absl import logging
 import tensorflow as tf
 import tensorflow_addons as tfa
 from tensorflow.python.platform import gfile
-from tensorflow.keras.mixed_precision import experimental as mixed_precision
+from tensorflow.keras import mixed_precision
 from representation import Representation
 from model_saver import ModelSaver
 from metrics import TrainMetrics
@@ -24,6 +24,9 @@ import video_resnet_slowfast
 import inert_resnet_cnn_lstm
 import inert_heydarian_cnn_lstm
 import inert_kyritsis_cnn_lstm
+import oreba_dis_OHO
+
+
 
 # Representation
 # Event class vals will be consecutive numbers after DEF_VAL
@@ -44,15 +47,20 @@ flags.DEFINE_integer(name='batch_size',
 flags.DEFINE_integer(name='beam_width',
   default=10, help='Width used for beam search.')
 flags.DEFINE_enum(name='dataset',
-  default='oreba-dis', enum_values=["oreba-dis", "fic", "clemson"],
+  default='oreba-dis', enum_values=["oreba-dis", "fic", "clemson", "oreba-one-hand"],
   help='Select the dataset')
+flags.DEFINE_enum(name='OHO_Flag', ### JPJ Addition
+  default='OHO-false', enum_values=["OHO-false","OHO-true"],
+  help='Select OneHandOREBA Flag')
 flags.DEFINE_enum(name='decode_fn',
   default='beam_search', enum_values=["greedy", "beam_search"],
   help='Select the decode fn')
 flags.DEFINE_integer(name='eval_batch_size',
   default=1, help='Batch size used for evaluation. Predict uses 1.')
+# flags.DEFINE_string(name='eval_dir',
+#   default='data/inert/valid', help='Directory for val data.')
 flags.DEFINE_string(name='eval_dir',
-  default='data/inert/valid', help='Directory for val data.')
+  default='/scratch/jpjolly/CTC_reimp_data/OREBA/take3/', help='Directory for val data.')
 flags.DEFINE_integer(name='eval_steps',
   default=1000, help='Eval and save best model after every x steps.')
 flags.DEFINE_integer(name='input_length',
@@ -98,8 +106,10 @@ flags.DEFINE_enum(name='predict_mode',
   help='How should the predictions be aggregated?')
 flags.DEFINE_integer(name='seq_shift',
   default=2, help='Shift when generating sequences.')
+# flags.DEFINE_string(name='train_dir',
+#   default='data/inert/train', help='Directory for training data.')
 flags.DEFINE_string(name='train_dir',
-  default='data/inert/train', help='Directory for training data.')
+  default='/scratch/jpjolly/CTC_reimp_data/OREBA/take3/', help='Directory for training data.')
 flags.DEFINE_integer(name='train_epochs',
   default=60, help='Number of training epochs.')
 flags.DEFINE_boolean(name='use_def',
@@ -116,6 +126,9 @@ def _get_dataset(dataset, label_mode, input_mode, input_length, seq_shift, def_v
     dataset = fic.Dataset(label_mode, input_length, seq_shift, def_val)
   elif dataset == 'clemson':
     dataset = clemson.Dataset(label_mode, input_length, seq_shift, def_val)
+  elif dataset == 'oreba-one-hand':
+    dataset = oreba_dis_OHO.Dataset(label_mode, input_mode, input_length,
+      seq_shift, def_val)
   else:
     raise ValueError("Dataset {} not implemented!".format(FLAGS.dataset))
 
@@ -130,7 +143,7 @@ def _get_model(model, dataset, num_classes, input_length, l2_lambda):
     model = video_resnet_slowfast.Model(num_classes=num_classes,
       input_length=input_length, l2_lambda=l2_lambda)
   elif model == "inert_resnet_cnn_lstm":
-    if dataset == "oreba-dis":
+    if (dataset == "oreba-dis" or dataset == "oreba-one-hand"):
       specs = {
         "seq_pool": 8,
         "conv_1_filters": 64,
@@ -163,7 +176,7 @@ def _get_model(model, dataset, num_classes, input_length, l2_lambda):
     model = inert_resnet_cnn_lstm.Model(num_classes=num_classes,
       input_length=input_length, specs=specs, l2_lambda=l2_lambda)
   elif model == "inert_kyritsis_cnn_lstm":
-    if dataset == "oreba-dis":
+    if (dataset == "oreba-dis" or dataset == "oreba-one-hand"):
       specs = {
         "seq_pool": 4,
         "conv_layer_specs": [(64, 6, True), (128, 6, True)]
@@ -247,6 +260,7 @@ def train_step(model, train_features, train_labels, train_labels_c, train_labels
         train_loss+train_l2_loss, model.trainable_weights)
   # Apply the gradients
   optimizer.apply_gradients(zip(train_grads, model.trainable_weights))
+  
   return train_logits, train_loss, train_l2_loss, train_grads
 
 @tf.function
@@ -341,6 +355,7 @@ def train_and_evaluate():
 
   # Keep track of total global step
   global_step = 0
+  
 
   # Iterate over epochs
   for epoch in range(FLAGS.train_epochs):
@@ -350,6 +365,7 @@ def train_and_evaluate():
     for step, (train_features, train_labels, train_labels_c, train_labels_l) in enumerate(train_dataset):
       # Assert sizes
       assert train_labels.shape == [FLAGS.batch_size, seq_length], "Labels shape [batch_size, seq_length]"
+      
       # Run the train step
       train_logits, train_loss, train_l2_loss, train_grads = train_step(model,
         train_features, train_labels, train_labels_c, train_labels_l, train_loss_fn, optimizer)
@@ -470,6 +486,7 @@ def predict():
   seq_length = model.get_seq_length()
   rep.set_seq_length(seq_length)
   # Make sure that seq_shift is set corresponding to model SEQ_POOL
+  print("Flags_SS = {} and Model_SS = {}".format(FLAGS.seq_shift,model.get_out_pool()))
   assert FLAGS.seq_shift == model.get_out_pool(), \
     "seq_shift should be equal to model.get_out_pool() in predict"
   # Load weights

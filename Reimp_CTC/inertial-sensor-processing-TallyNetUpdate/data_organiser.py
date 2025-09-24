@@ -3,9 +3,12 @@ import os
 import shutil
 import logging
 import oreba_dis
+import oreba_dis_OHO_Dnd
+import oreba_dis_OHO_Dom
 import oreba_sha
 import fic
-import clemson
+import clemson_dom
+import clemson_dnd
 
 logging.basicConfig(format='%(asctime)s %(name)s %(levelname)s: %(message)s',
   datefmt='%H:%M:%S', level=logging.INFO)
@@ -32,10 +35,23 @@ class DataOrganiser:
       train_ids = fic.TRAIN_IDS
       valid_ids = fic.VALID_IDS
       test_ids = fic.TEST_IDS
-    elif self.dataset == "Clemson":
-      train_ids = clemson.TRAIN_IDS
-      valid_ids = clemson.VALID_IDS
-      test_ids = clemson.TEST_IDS
+    elif self.dataset == "Dom-Clemson":
+      train_ids = clemson_dom.TRAIN_IDS
+      valid_ids = clemson_dom.VALID_IDS
+      test_ids = clemson_dom.TEST_IDS
+    elif self.dataset == "Dnd-Clemson":
+      train_ids = clemson_dnd.TRAIN_IDS
+      valid_ids = clemson_dnd.VALID_IDS
+      test_ids = clemson_dnd.TEST_IDS
+    elif self.dataset == "Dom-OneHandOreba":
+      train_ids = oreba_dis_OHO_Dom.TRAIN_IDS
+      valid_ids = oreba_dis_OHO_Dom.VALID_IDS
+      test_ids = oreba_dis_OHO_Dom.TEST_IDS
+    elif self.dataset == "Dnd-OneHandOreba":
+      train_ids = oreba_dis_OHO_Dnd.TRAIN_IDS
+      valid_ids = oreba_dis_OHO_Dnd.VALID_IDS
+      test_ids = oreba_dis_OHO_Dnd.TEST_IDS
+    
 
     train_dir = os.path.join(self.organise_dir, "train")
     valid_dir = os.path.join(self.organise_dir, "valid")
@@ -99,7 +115,7 @@ def str2bool(v):
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Organise exported files')
   parser.add_argument('--src_dir', type=str, default='OREBA-DIS', nargs='?', help='Directory to search for data')
-  parser.add_argument('--dataset', choices=('OREBA-DIS', 'OREBA-SHA', 'Clemson', 'FIC'), default='OREBA-DIS', nargs='?', help='Which dataset is used')
+  parser.add_argument('--dataset', choices=('OREBA-DIS', 'OREBA-SHA', 'Dom-Clemson', 'Dnd-Clemson', 'Dnd-OneHandOreba', 'Dom-OneHandOreba', 'FIC'), default='OREBA-DIS', nargs='?', help='Which dataset is used')
   parser.add_argument('--organise_dir', type=str, default='Organised', nargs='?', help='Directory to copy train, val and test sets using data organiser')
   parser.add_argument('--organise_subfolders', type=str2bool, default=False, nargs='?', help='Create sub folder per each file in validation and test set')
   args = parser.parse_args()

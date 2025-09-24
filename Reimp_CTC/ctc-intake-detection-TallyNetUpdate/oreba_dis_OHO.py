@@ -1,4 +1,19 @@
-"""Pipeline for the OREBA dataset"""
+"""
+Pipeline for the OREBA dataset
+"""
+
+"""
+Modified By James Jolly to operate on the One Handed OREBA data.
+
+Log:
+    July 22, 2025
+        Removed flipping code taken from the Clemson inertial parser 
+        since all data for OHO is already consistently processed
+        to right hand dominant data. Checking to see if this boosts the
+        performance since the non-training data NEVER sees left hand 
+        instances, unlike the Clemson and THO data.
+"""
+
 
 import math
 import os
@@ -73,15 +88,12 @@ class Dataset():
         serialized_example, {
           'example/{}'.format(self.label_mode): tf.io.FixedLenFeature([], dtype=tf.string),
           'example/dom_acc': tf.io.FixedLenFeature([3], dtype=tf.float32),
-          'example/dom_gyro': tf.io.FixedLenFeature([3], dtype=tf.float32),
-          'example/ndom_acc': tf.io.FixedLenFeature([3], dtype=tf.float32),
-          'example/ndom_gyro': tf.io.FixedLenFeature([3], dtype=tf.float32)
+          'example/dom_gyro': tf.io.FixedLenFeature([3], dtype=tf.float32)
       })
       label = tf.cast(table.lookup(features['example/{}'.format(self.label_mode)]), tf.int32)
       features = tf.stack(
-        [features['example/dom_acc'], features['example/dom_gyro'],
-         features['example/ndom_acc'], features['example/ndom_gyro']], 0)
-      features = tf.squeeze(tf.reshape(features, [-1, 12]))
+        [features['example/dom_acc'], features['example/dom_gyro']], 0)
+      features = tf.squeeze(tf.reshape(features, [-1, 6]))
       return features, label
 
     if self.input_mode == "video":
@@ -168,56 +180,76 @@ class Dataset():
 
       if is_training:
         # Random horizontal flip
-        def _flip_hands(inert_data):
-          """Flip hands"""
-          # Derive multiplier
-          flip = tf.concat([FLIP_ACC, FLIP_GYRO], axis=0)
-          orient = tf.concat([FLIP_ORIENT, FLIP_ORIENT], axis=0)
-          mult = tf.tile(tf.math.multiply(flip, orient), [2])
-          # Transform values
-          inert_data = tf.math.multiply(inert_data, mult)
-          # Change indices
-          inert_data = tf.concat([inert_data[:, 6:12], inert_data[:, 0:6]], axis=1)
-          return inert_data
-        condition = tf.less(tf.random.uniform([], 0, 1.0), .5)
-        inert_data = tf.cond(pred=condition,
-          true_fn=lambda: _flip_hands(inert_data),
-          false_fn=lambda: inert_data)
+        
+        
+        #### JPJ # ORIG ### def _flip_hands(inert_data):
+        # """Flip hands"""
+        # # Derive multiplier
+        # flip = tf.concat([FLIP_ACC, FLIP_GYRO], axis=0)
+        # orient = tf.concat([FLIP_ORIENT, FLIP_ORIENT], axis=0)
+        # mult = tf.tile(tf.math.multiply(flip, orient), [2])
+        # # Transform values
+        # inert_data = tf.math.multiply(inert_data, mult)
+        # # Change indices
+        # inert_data = tf.concat([inert_data[:, 6:12], inert_data[:, 0:6]], axis=1)
+        # return inert_data
+        ##### REMOVING TO SEE IF THIS HELPS THE PERFORMANCE OF THE MODEL
+        ##### JPJ # taken from Clemson Data to manage single hand flip:
+        ##### def _flip_inertial(inert_data):
+        #####   """Flip hands"""
+        #####   mult = tf.concat([FLIP_ACC, FLIP_GYRO], axis=0)
+        #####   inert_data = tf.math.multiply(inert_data, mult)
+        #####   return inert_data
+        ##### # End of JPJ Insert
+        ##### condition = tf.less(tf.random.uniform([], 0, 1.0), .5)
+        ##### inert_data = tf.cond(pred=condition,
+        #####   # true_fn=lambda: _flip_hands(inert_data),
+        #####   true_fn=lambda: _flip_inertial(inert_data),
+        #####   false_fn=lambda: inert_data)
+        ##### REMOVED SINCE THIS IS ONE HAND DATA AND NOT DONE ON CLEMSON
         # Random x-z rotation
-        def _random_rotation(inert_data, rotation_0_1):
-          """Simulate rotating sensor around wrist (y axis)"""
-          # Derive multiplication matrix
-          mult_0 = tf.math.cos(rotation_0_1 * math.pi)
-          mult_1 = tf.math.sin(rotation_0_1 * math.pi)
-          mult = tf.concat(
-            [[mult_0, 0.0, -mult_1, 0.0,  0.0, 0.0],
-             [0.0,  1.0, 0.0,  0.0,  0.0, 0.0],
-             [mult_1, 0.0, mult_0, 0.0,  0.0, 0.0],
-             [0.0,  0.0, 0.0,  mult_0, 0.0, -mult_1],
-             [0.0,  0.0, 0.0,  0.0,  1.0, 0.0],
-             [0.0,  0.0, 0.0,  mult_1, 0.0, mult_0]], axis=0)
-          mult = tf.reshape(mult, [6, 6])
-          # Rotation
-          inert_data_left = tf.linalg.matmul(inert_data[:, 0:6], mult)
-          inert_data_right = tf.linalg.matmul(inert_data[:, 6:12], mult)
-          inert_data = tf.concat([inert_data_left, inert_data_right], axis=1)
-          return inert_data
-        # Do a random rotation between 0 and 180 degrees in 10% of cases
-        rotation_degree = tf.cond(
-          pred=tf.math.less(tf.random.uniform([], 0.0, 1.0), .1),
-          true_fn=lambda: tf.random.uniform([], 0.0, 1.0),
-          false_fn=lambda: tf.constant(0.0))
-        inert_data = _random_rotation(inert_data, rotation_degree)
-        # Random orientation change
-        def _change_orientation(inert_data, change_left, change_right):
-          """Change orientation"""
-          # Derive multiplier
-          left_orient = FLIP_ORIENT if change_left else [1.0, 1.0, 1.0]
-          right_orient = FLIP_ORIENT if change_right else [1.0, 1.0, 1.0]
-          mult = tf.tile(tf.concat([left_orient, right_orient], axis=0), [2])
-          # Transform values
-          inert_data = tf.math.multiply(inert_data, mult)
-          return inert_data
+        if False:
+          def _random_rotation(inert_data, rotation_0_1):
+            """Simulate rotating sensor around wrist (y axis)"""
+            # Derive multiplication matrix
+            mult_0 = tf.math.cos(rotation_0_1 * math.pi)
+            mult_1 = tf.math.sin(rotation_0_1 * math.pi)
+            mult = tf.concat(
+              [[mult_0, 0.0, -mult_1, 0.0,  0.0, 0.0],
+               [0.0,  1.0, 0.0,  0.0,  0.0, 0.0],
+               [mult_1, 0.0, mult_0, 0.0,  0.0, 0.0],
+               [0.0,  0.0, 0.0,  mult_0, 0.0, -mult_1],
+               [0.0,  0.0, 0.0,  0.0,  1.0, 0.0],
+               [0.0,  0.0, 0.0,  mult_1, 0.0, mult_0]], axis=0)
+            mult = tf.reshape(mult, [6, 6])
+            # Rotation
+            # inert_data_left = tf.linalg.matmul(inert_data[:, 0:6], mult)
+            # inert_data_right = tf.linalg.matmul(inert_data[:, 6:12], mult)
+            # inert_data = tf.concat([inert_data_left, inert_data_right], axis=1)
+            ### JPJ INSERT: Adding this in as a single operation since only dominant hand data is in tfrecord
+            inert_data = tf.linalg.matmul(inert_data[:, 0:6], mult)
+            return inert_data
+          # Do a random rotation between 0 and 180 degrees in 10% of cases
+          rotation_degree = tf.cond(
+            pred=tf.math.less(tf.random.uniform([], 0.0, 1.0), .1),
+            true_fn=lambda: tf.random.uniform([], 0.0, 1.0),
+            false_fn=lambda: tf.constant(0.0))
+          inert_data = _random_rotation(inert_data, rotation_degree)
+        
+		# end of if Adding Rotation
+        # # Random orientation change
+        # def _change_orientation(inert_data, change_left, change_right):
+        #   """Change orientation"""
+        #   # Derive multiplier
+        #   left_orient = FLIP_ORIENT if change_left else [1.0, 1.0, 1.0]
+        #   right_orient = FLIP_ORIENT if change_right else [1.0, 1.0, 1.0]
+        #   mult = tf.tile(tf.concat([left_orient, right_orient], axis=0), [2])
+        #   # Transform values
+        #   inert_data = tf.math.multiply(inert_data, mult)
+        #   return inert_data
+        ##### REMOVED SINCE THIS IS ONE HAND DATA AND NOT DONE ON CLEMSON
+        
+        
         # Disable for now
         #change_left = tf.less(tf.random.uniform([], 0, 1.0), .1)
         #inert_data = tf.cond(pred=condition,

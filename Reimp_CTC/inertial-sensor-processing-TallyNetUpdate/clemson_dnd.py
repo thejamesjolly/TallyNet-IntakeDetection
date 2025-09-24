@@ -1,4 +1,9 @@
-"""Clemson dataset"""
+"""
+Clemson dataset
+Modified by James Jolly on Aug 6th, 2025 to utilize both Dominant and Non-Dominant intakes
+    using Artificial windows generated around moment of intatke GT rather than using
+    the dominant hand gesture_union.txt as the absolute GT labels to match. 
+"""
 
 from collections import Counter
 import csv
@@ -265,7 +270,7 @@ class Dataset():
       return None
 
   def ids(self):
-    data_dir = os.path.join(self.src_dir, "all-data")
+    data_dir = os.path.join(self.src_dir, "Data")
     subject_ids = [x for x in next(os.walk(data_dir))[1]]
     ids = []
     for subject_id in subject_ids:
@@ -277,14 +282,14 @@ class Dataset():
 
   def check(self, id):
     # Path of gesture annotations
-    gesture_dir = os.path.join(self.src_dir, "all-gt-gestures", id[0],
+    gesture_dir = os.path.join(self.src_dir, "Data", id[0],
       id[1], "gesture_union.txt")
     if not os.path.isfile(gesture_dir):
       logging.warn("No gesture annotations found. Skipping {}_{}.".format(
         id[0], id[1]))
       return False
     # Path of bite annotations
-    bite_dir = os.path.join(self.src_dir, "all-gt-bites", id[0],
+    bite_dir = os.path.join(self.src_dir, "Data", id[0],
       id[1], "gt_union.txt")
     if not os.path.isfile(bite_dir):
       logging.warn("No bite annotations found. Skipping {}_{}.".format(
@@ -295,8 +300,8 @@ class Dataset():
   def data(self, _, id):
     logging.info("Reading raw data from txt")
     # Read acc and gyro
-    dir = os.path.join(self.src_dir, "all-data", id[0], id[1])
-    files = glob.glob(os.path.join(dir, "*.txt"))
+    dir = os.path.join(self.src_dir, "Data", id[0], id[1])
+    files = glob.glob(os.path.join(dir, "2*[0-9].txt"))
     assert files, "No raw data found for {} {}".format(id[0], id[1])
     acc = []
     gyro = []
@@ -332,7 +337,8 @@ class Dataset():
 
   def dominant(self, id):
     """Read handedness, which is the hand sensor was placed on"""
-    file_path = os.path.join(self.src_dir, "demographics.xlsx")
+    # file_path = os.path.join(self.src_dir, "demographics.xlsx") # JPJ ORIG
+    file_path = os.path.join(self.src_dir, "demographics.xls") # Either downgrade xlrd<2.0.0 or use xls format
     workbook = xlrd.open_workbook(file_path)
     sheet = workbook.sheet_by_index(0)
     for rowx in range(sheet.nrows):
@@ -346,60 +352,93 @@ class Dataset():
       dt = TIME_FACTOR // FREQUENCY
       return index * dt
     # Read gesture ground truth
-    gesture_dir = os.path.join(self.src_dir, "all-gt-gestures", id[0],
+    gesture_dir = os.path.join(self.src_dir, "Data", id[0],
       id[1], "gesture_union.txt")
     label_1, label_2, start_time, end_time = [], [], [], []
-    with open(gesture_dir) as dest_f:
-      for row in csv.reader(dest_f, delimiter='\t'):
-        if row[0].lower() in self.names_2:
-          label_1.append("intake")
-          label_2.append(row[0].lower())
-          start_time.append(_index_to_ms(int(row[1])))
-          end_time.append(_index_to_ms(int(row[2])))
+
     # Read bite ground truth by matching with gestures
-    bite_dir = os.path.join(self.src_dir, "all-gt-bites", id[0],
+    bite_dir = os.path.join(self.src_dir, "Data", id[0],
       id[1], "gt_union.txt")
     num = len(timestamps)
+    
     labels_1 = np.empty(num, dtype='U25'); labels_1.fill(DEFAULT_LABEL)
     labels_2 = np.empty(num, dtype='U25'); labels_2.fill(DEFAULT_LABEL)
     labels_3 = np.empty(num, dtype='U25'); labels_3.fill(DEFAULT_LABEL)
     labels_4 = np.empty(num, dtype='U25'); labels_4.fill(DEFAULT_LABEL)
     labels_5 = np.empty(num, dtype='U25'); labels_5.fill(DEFAULT_LABEL)
     labels_6 = np.empty(num, dtype='U25'); labels_6.fill(DEFAULT_LABEL)
-    for l1, l2, start, end in zip(label_1, label_2, start_time, end_time):
-      start_frame = np.argmax(np.array(timestamps) >= start)
-      end_frame = np.argmax(np.array(timestamps) > end)
-      match_found = False
-      with open(bite_dir) as dest_f:
-        for row in csv.reader(dest_f, delimiter='\t'):
-          time = _index_to_ms(int(row[1]))
-          if time >= start and time <= end:
-            if row[2].lower() in self.names_3:
-              l3 = row[2].lower()
-            if row[3].lower() in self.names_4:
-              l4 = row[3].lower()
-            if row[4].lower() in self.names_5:
-              l5 = row[4].lower()
-            food = self.__get_food_class(row[5].lower())
-            if food in self.names_6:
-              l6 = food
-            else:
-              l6 = "NA"
-              logging.warn("No food class identified for {}".format(food))
-            match_found = True
-            break
-      if not match_found:
-        l3 = "NA"; l4 = "NA"; l5 = "NA"; l6 = "NA"
-      labels_1[start_frame:end_frame] = l1
-      labels_2[start_frame:end_frame] = l2
-      if l3 in self.names_3:
-        labels_3[start_frame:end_frame] = l3
-      if l4 in self.names_4:
-        labels_4[start_frame:end_frame] = l4
-      if l5 in self.names_5:
-        labels_5[start_frame:end_frame] = l5
-      if l6 in self.names_6:
-        labels_6[start_frame:end_frame] = l6
+    
+    ##### JPJ Edits to use all nondom and dom bites as artificial windows of average bite length
+#     StartOffset = TIME_FACTOR * 1.5
+#     EndOffset = TIME_FACTOR * 1.5
+    
+    with open(bite_dir) as dest_f:
+      for row in csv.reader(dest_f, delimiter='\t'):
+        intake_idx = int(row[1])
+        start_idx = intake_idx - 23 # Make start time ~1.5 seconds earlier at 15 Hz 
+        end_idx = intake_idx + 23  # Make end time ~1.5 seconds later at 15 Hz
+        time = _index_to_ms(intake_idx)
+        start_time = _index_to_ms(start_idx)
+        end_time = _index_to_ms(end_idx)
+        ### OG ATTEMPT USING OFFSET, THOUGH THIS WAS REMOVED TO MATCH THE MICROSEC INDEX OF TIMESTAMPS
+        # time = _index_to_ms(intake_idx)
+        # start_time = time - StartOffset
+        # end_time = time + EndOffset
+        start_frame = np.argmax(np.array(timestamps) >= start_time)
+        end_frame = np.argmax(np.array(timestamps) > end_time)
+        ### Make Label 1 data
+        # label_1.append("intake")
+        l1 = "intake"
+        
+        ### Make Label 2 Data
+        if row[4].lower() == 'glass' or row[4].lower() == 'mug':
+          # label_2.append("drink")
+          l2 = "drink"
+        else:
+          # label_2.append("bite")
+          l2 = "bite"
+        # end of if label2 == bite
+                
+        ### Grab labels 3 to 6
+        if row[2].lower() in self.names_3:
+          l3 = row[2].lower()
+        else:
+          l3 = "NA"
+        # end of l3
+        if row[3].lower() in self.names_4:
+          l4 = row[3].lower()
+        else:
+          l4 = "NA"
+        # end of l4
+        if row[4].lower() in self.names_5:
+          l5 = row[4].lower()
+        else:
+          l5 = "NA"
+        # end of l5
+        food = self.__get_food_class(row[5].lower())
+        if food in self.names_6:
+          l6 = food
+        else:
+          l6 = "NA"
+          logging.warn("No food class identified for {}".format(food))
+        # end of l6
+        
+        ### Update all Labels
+        labels_1[start_frame:end_frame] = l1
+        labels_2[start_frame:end_frame] = l2
+        if l3 in self.names_3:
+          labels_3[start_frame:end_frame] = l3
+        if l4 in self.names_4:
+          labels_4[start_frame:end_frame] = l4
+        if l5 in self.names_5:
+          labels_5[start_frame:end_frame] = l5
+        if l6 in self.names_6:
+          labels_6[start_frame:end_frame] = l6
+        # end of label updates
+        
+      # end of for row in GT file
+    # end of with open(GT File) 
+
     # Update class names
     self.counts_1 = self.__add_to_class_counts(self.counts_1, labels_1)
     self.counts_2 = self.__add_to_class_counts(self.counts_2, labels_2)

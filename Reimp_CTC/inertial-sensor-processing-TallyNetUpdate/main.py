@@ -12,8 +12,11 @@ import itertools
 from data_organiser import DataOrganiser
 import matplotlib.pyplot as plt
 import oreba_dis
+import oreba_dis_OHO_Dnd
+import oreba_dis_OHO_Dom
 import oreba_sha
-import clemson
+import clemson_dom
+import clemson_dnd
 import fic
 
 UPDATE_RATE = 16
@@ -196,8 +199,22 @@ def main(args=None):
     dataset = fic.Dataset(args.src_dir, args.exp_dir,
       args.dom_hand_spec, args.label_spec, args.label_spec_inherit,
       args.exp_uniform, args.exp_format)
-  elif args.dataset == "Clemson":
-    dataset = clemson.Dataset(args.src_dir, args.exp_dir,
+  elif args.dataset == "Dom-Clemson":
+    dataset = clemson_dom.Dataset(args.src_dir, args.exp_dir,
+      args.dom_hand_spec, args.label_spec, args.label_spec_inherit,
+      args.exp_uniform, args.exp_format)
+  elif args.dataset == "Dnd-Clemson":
+    dataset = clemson_dnd.Dataset(args.src_dir, args.exp_dir,
+      args.dom_hand_spec, args.label_spec, args.label_spec_inherit,
+      args.exp_uniform, args.exp_format)
+  elif args.dataset == "Dnd-OneHandOreba":
+    print("Using Dnd OHO (Dominant Hand only from Raw Data and All Intake GT Labels).")
+    dataset = oreba_dis_OHO_Dnd.Dataset(args.src_dir, args.exp_dir,
+      args.dom_hand_spec, args.label_spec, args.label_spec_inherit,
+      args.exp_uniform, args.exp_format)
+  elif args.dataset == "Dom-OneHandOreba":
+    print("Using Dom OHO (Dominant Hand only and Dominant GT Labels only).")
+    dataset = oreba_dis_OHO_Dom.Dataset(args.src_dir, args.exp_dir,
       args.dom_hand_spec, args.label_spec, args.label_spec_inherit,
       args.exp_uniform, args.exp_format)
   else:
@@ -245,18 +262,22 @@ def main(args=None):
     dominant_hand = dataset.dominant(id)
 
     # If enabled, make hands uniform by flipping left to right if needed
-    if args.exp_uniform and dominant_hand == 'left':
-      logging.info("Flipping for uniformity")
-      acc_signs, gyro_signs = dataset.get_flip_signs()
-      if len(data) == 2:
-        left, right = data["left"], data["right"]
-        left_temp = (copy.deepcopy(left[0]), copy.deepcopy(left[1]))
-        left = flip(right[0], right[1], acc_signs, gyro_signs)
-        right = flip(left_temp[0], left_temp[1], acc_signs, gyro_signs)
-        data["left"], data["right"] = left, right
-      else:
-        data["hand"] = (flip(data["hand"][0], data["hand"][1],
-          acc_signs, gyro_signs))
+    if args.dataset != "Dom-OneHandOreba":
+      if args.exp_uniform and dominant_hand == 'left':
+        logging.info("Flipping for uniformity")
+        acc_signs, gyro_signs = dataset.get_flip_signs()
+        if len(data) == 2:
+          left, right = data["left"], data["right"]
+          left_temp = (copy.deepcopy(left[0]), copy.deepcopy(left[1]))
+          left = flip(right[0], right[1], acc_signs, gyro_signs)
+          right = flip(left_temp[0], left_temp[1], acc_signs, gyro_signs)
+          data["left"], data["right"] = left, right
+        else:
+          data["hand"] = (flip(data["hand"][0], data["hand"][1],
+            acc_signs, gyro_signs))
+        # end if len==2
+      # end if exp_uniform and dom == left
+    # end if NOT (OHOv3 or OHOv2)
 
     # Decimate/resample if needed
     dataset_frequency = dataset.get_frequency()
@@ -266,13 +287,13 @@ def main(args=None):
       if dataset_frequency % args.sampling_rate == 0:
         logging.info("Decimate")
         if len(data) == 2:
-          left, right = data["left"], data["right"]
+          left, right = data["ndom"], data["dom"]
           timestamps, left_acc, left_gyro = decimate(left[0], left[1],
             timestamps, args.sampling_rate, dataset_frequency)
           _, right_acc, right_gyro = decimate(right[0], right[1],
             timestamps, args.sampling_rate, dataset_frequency)
-          data["left"] = (left_acc, left_gyro)
-          data["right"] = (right_acc, right_gyro)
+          data["ndom"] = (left_acc, left_gyro)
+          data["dom"] = (right_acc, right_gyro)
         else:
           timestamps, acc, gyro = decimate(data[0], right[1],
             timestamps, args.sampling_rate, dataset_frequency)
@@ -283,40 +304,43 @@ def main(args=None):
         start_time = timestamps[0]
         end_time = timestamps[len(timestamps)-1]
         if len(data) == 2:
-          left, right = data["left"], data["right"]
+          left, right = data["ndom"], data["dom"]
           timestamps, left_acc, left_gyro = resample(left[0], left[1],
             args.sampling_rate, time_factor, start_time, end_time)
           _, right_acc, right_gyro = resample(right[0], right[1],
             args.sampling_rate, time_factor, start_time, end_time)
-          data["left"] = (left_acc, left_gyro)
-          data["right"] = (right_acc, right_gyro)
+          data["ndom"] = (left_acc, left_gyro)
+          data["dom"] = (right_acc, right_gyro)
         else:
           timestamps, acc, gyro = resample(data["hand"][0], data["hand"][1],
             args.sampling_rate, time_factor, start_time, end_time)
           data["hand"] = (acc, gyro)
 
     # Processing
-    if len(data) == 2:
-      left, right = data["left"], data["right"]
-      left_acc, left_gyro = preprocess(left[0], left[1],
-        args.sampling_rate, args.smoothing_mode,
-        args.smoothing_window_size, args.smoothing_order,
-        args.use_vis, args.use_gravity_removal, args.use_smoothing,
-        args.use_standardization)
-      right_acc, right_gyro = preprocess(right[0], right[1],
-        args.sampling_rate, args.smoothing_mode,
-        args.smoothing_window_size, args.smoothing_order,
-        args.use_vis, args.use_gravity_removal, args.use_smoothing,
-        args.use_standardization)
-      data["left"] = (left_acc, left_gyro)
-      data["right"] = (right_acc, right_gyro)
-    else:
-      acc, gyro = preprocess(data["hand"][0], data["hand"][1],
-        args.sampling_rate, args.smoothing_mode,
-        args.smoothing_window_size, args.smoothing_order, args.use_vis,
-        args.use_gravity_removal, args.use_smoothing,
-        args.use_standardization)
-      data["hand"] = (acc, gyro)
+    if args.dataset != "Dom-OneHandOreba":
+      if len(data) == 2:
+        left, right = data["ndom"], data["dom"]
+        left_acc, left_gyro = preprocess(left[0], left[1],
+          args.sampling_rate, args.smoothing_mode,
+          args.smoothing_window_size, args.smoothing_order,
+          args.use_vis, args.use_gravity_removal, args.use_smoothing,
+          args.use_standardization)
+        right_acc, right_gyro = preprocess(right[0], right[1],
+          args.sampling_rate, args.smoothing_mode,
+          args.smoothing_window_size, args.smoothing_order,
+          args.use_vis, args.use_gravity_removal, args.use_smoothing,
+          args.use_standardization)
+        data["ndom"] = (left_acc, left_gyro)
+        data["dom"] = (right_acc, right_gyro)
+      else:
+        acc, gyro = preprocess(data["hand"][0], data["hand"][1],
+          args.sampling_rate, args.smoothing_mode,
+          args.smoothing_window_size, args.smoothing_order, args.use_vis,
+          args.use_gravity_removal, args.use_smoothing,
+          args.use_standardization)
+        data["hand"] = (acc, gyro)
+      # end if 1 or 2 hands
+    # end if Processing
 
     # Read annotations
     labels = dataset.labels(i, id, timestamps)
@@ -347,7 +371,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Process inertial sensor data')
   parser.add_argument('--src_dir', type=str, default='OREBA_Dataset_Public_1_0/oreba_dis/recordings', nargs='?', help='Recordings directory')
   parser.add_argument('--exp_dir', type=str, default='Export', nargs='?', help='Directory for data export')
-  parser.add_argument('--dataset', choices=('OREBA-DIS', 'OREBA-SHA', 'Clemson', 'FIC'), default='OREBA-DIS', nargs='?', help='Which dataset is used')
+  parser.add_argument('--dataset', choices=('OREBA-DIS', 'OREBA-SHA', 'Dom-Clemson', 'Dnd-Clemson', 'Dnd-OneHandOreba', 'Dom-OneHandOreba', 'FIC'), default='OREBA-DIS', nargs='?', help='Which dataset is used')
   parser.add_argument('--sampling_rate', type=int, default=64, nargs='?', help='Sampling rate of exported signals in Hz')
   parser.add_argument('--use_vis', type=str2bool, default='False', nargs='?', help='If True, enable visualization')
   parser.add_argument('--use_gravity_removal', type=str2bool, default=True, help="If True, remove gravity during preprocessing")

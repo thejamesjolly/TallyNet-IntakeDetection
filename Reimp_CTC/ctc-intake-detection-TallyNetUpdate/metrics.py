@@ -618,8 +618,13 @@ class EvalMetrics():
 
   def update_i(self, labels, logits, predictions_u):
     # Collapse seq_length dim if 1
-    labels = tf.squeeze(labels, axis=1)
-    logits = tf.squeeze(logits, axis=1)
+    ### ORIGINAL ## JPJ
+    # # labels = tf.squeeze(labels, axis=1)
+    # # logits = tf.squeeze(logits, axis=1)
+    # ### JPJ EDITS DUE TO ERROR
+    # labels = tf.squeeze(labels, axis=0)
+    # logits = tf.squeeze(logits, axis=0)
+    
     if self.loss_mode == "ctc":
       for i in self.event_classes:
         self.metrics['class_{}_tp_fp1_fp2_fp3_fn'.format(i)](labels, predictions_u)

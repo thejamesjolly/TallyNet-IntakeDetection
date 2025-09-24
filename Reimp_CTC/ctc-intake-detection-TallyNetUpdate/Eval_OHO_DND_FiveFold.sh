@@ -1,0 +1,20 @@
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v1_Fold0 0 model_best_22000 B22000
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v1_Fold1 1 model_best_13000 B13000
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v1_Fold2 2 model_best_13500 B13500
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v1_Fold3 3 model_best_12500 B12500
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v1_Fold4 4 model_best_11500 B11500
+
+
+
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v2_Fold0 0 model_best_16000 B16000
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v2_Fold1 1 model_best_1000 B1000
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v2_Fold2 2 model_best_31500 B31500
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v2_Fold3 3 model_best_38500 B38500
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v2_Fold4 4 model_best_18500 B18500
+
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v3_Fold0 0 model_best_3500 B3500
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v3_Fold1 1 model_best_35500 B35500
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v3_Fold2 2 model_best_9000 B9000
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v3_Fold3 3 model_best_40000 B40000
+sbatch batchCTC_Predict_FiveFold_OHO.sh OHO_CTC_v3_Fold4 4 model_best_15500 B15500
+
