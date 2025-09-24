@@ -1,0 +1,5 @@
+93.994 93.041 94.967 3944 209 295 Models/DomCleanClem_A1333_WS15_s05_6/models/fold1 1 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.458 92.648 94.282 3957 240 314 Models/DomCleanClem_A1333_WS15_s05_6/models/fold2 2 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+94.479 94.854 94.108 3594 225 195 Models/DomCleanClem_A1333_WS15_s05_6/models/fold3 3 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+94.619 94.415 94.824 3939 215 233 Models/DomCleanClem_A1333_WS15_s05_6/models/fold4 4 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.127 94.968 91.355 3963 375 210 Models/DomCleanClem_A1333_WS15_s05_6/models/fold0 0 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt

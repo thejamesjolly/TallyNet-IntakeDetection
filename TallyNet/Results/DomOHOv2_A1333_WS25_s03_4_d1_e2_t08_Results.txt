@@ -1,0 +1,5 @@
+89.883 88.124 91.713 653 59 88 Models/DomOHOv2_A1333_WS25_s03_4/models/fold1 1 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+88.978 89.459 88.503 662 86 78 Models/DomOHOv2_A1333_WS25_s03_4/models/fold2 2 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+88.394 88.462 88.326 575 76 75 Models/DomOHOv2_A1333_WS25_s03_4/models/fold3 3 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+86.107 83.804 88.540 564 73 109 Models/DomOHOv2_A1333_WS25_s03_4/models/fold4 4 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+85.997 81.947 90.468 522 55 115 Models/DomOHOv2_A1333_WS25_s03_4/models/fold0 0 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt

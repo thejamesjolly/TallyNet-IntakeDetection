@@ -1,0 +1,2 @@
+Eval=Dong_PtVsPt, Dataset=./../Pickle_Databases/ClemDomPkl.pkl, Fold=3 of 5, WinTol=99.0
+83.296 89.364 78.000 3386   955    403   

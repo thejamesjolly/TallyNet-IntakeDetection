@@ -1,0 +1,22 @@
+Running inside Clemson-DND Segment...
+  File "Eval_HeydCNN.py", line 189
+    print("Invalid Database flasinvla
+                                    ^
+SyntaxError: EOL while scanning string literal
+  File "Eval_HeydCNN.py", line 189
+    print("Invalid Database flasinvla
+                                    ^
+SyntaxError: EOL while scanning string literal
+  File "Eval_HeydCNN.py", line 189
+    print("Invalid Database flasinvla
+                                    ^
+SyntaxError: EOL while scanning string literal
+  File "Eval_HeydCNN.py", line 189
+    print("Invalid Database flasinvla
+                                    ^
+SyntaxError: EOL while scanning string literal
+  File "Eval_HeydCNN.py", line 189
+    print("Invalid Database flasinvla
+                                    ^
+SyntaxError: EOL while scanning string literal
+FINISHED EVALUATING.

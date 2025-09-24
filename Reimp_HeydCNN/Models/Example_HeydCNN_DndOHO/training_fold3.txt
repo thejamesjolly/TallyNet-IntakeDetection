@@ -1,0 +1,98 @@
+CUT Input is  128
+STRIDE input is  32
+Training Data coming from file  ./../Pickle_Databases/OREBA.pkl
+FOLD_INDEX input is  3
+FOLDS_TOTAL input is  5
+python setup complete
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 128, 128)          896       
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 126, 128)          49280     
+_________________________________________________________________
+conv1d_2 (Conv1D)            (None, 122, 128)          82048     
+_________________________________________________________________
+conv1d_3 (Conv1D)            (None, 116, 128)          114816    
+_________________________________________________________________
+lstm (LSTM)                  (None, 116, 64)           49408     
+_________________________________________________________________
+lstm_1 (LSTM)                (None, 64)                33024     
+_________________________________________________________________
+flatten (Flatten)            (None, 64)                0         
+_________________________________________________________________
+dense (Dense)                (None, 1)                 65        
+=================================================================
+Total params: 329,537
+Trainable params: 329,537
+Non-trainable params: 0
+_________________________________________________________________
+Training on Data Split by Round Robin approach...
+training_data of size  (112292, 128, 6)
+Classes of size  (112292,)
+Total Positive Class Examples:  8702
+Training
+Epoch 1/8
+2983/2983 - 958s - loss: 0.0493 - mean_absolute_error: 0.0991 - val_loss: 0.0791 - val_mean_absolute_error: 0.1428
+Epoch 2/8
+2983/2983 - 954s - loss: 0.0424 - mean_absolute_error: 0.0856 - val_loss: 0.0786 - val_mean_absolute_error: 0.1107
+Epoch 3/8
+2983/2983 - 954s - loss: 0.0389 - mean_absolute_error: 0.0785 - val_loss: 0.0767 - val_mean_absolute_error: 0.1144
+Epoch 4/8
+2983/2983 - 955s - loss: 0.0365 - mean_absolute_error: 0.0740 - val_loss: 0.0747 - val_mean_absolute_error: 0.1078
+Epoch 5/8
+2983/2983 - 956s - loss: 0.0365 - mean_absolute_error: 0.0741 - val_loss: 0.0747 - val_mean_absolute_error: 0.1125
+Epoch 6/8
+2983/2983 - 955s - loss: 0.0347 - mean_absolute_error: 0.0708 - val_loss: 0.0778 - val_mean_absolute_error: 0.1065
+Epoch 7/8
+2983/2983 - 957s - loss: 0.0316 - mean_absolute_error: 0.0654 - val_loss: 0.0737 - val_mean_absolute_error: 0.1017
+Epoch 8/8
+2983/2983 - 956s - loss: 0.0307 - mean_absolute_error: 0.0637 - val_loss: 0.0726 - val_mean_absolute_error: 0.1045
+classifier training 7652.26149559021  seconds
+Testing
+1/2 [==============>...............] - ETA: 0s - loss: 5.6710e-04 - mean_absolute_error: 0.01812/2 [==============================] - 0s 14ms/step - loss: 4.7661e-04 - mean_absolute_error: 0.0163
+Test accuracy: 0.016345258802175522
+Data Has input of shape:
+(40, 128, 6)
+Actual, prediction:
+0 [0.01176441]
+0 [0.04839988]
+0 [0.05012278]
+0 [0.02101874]
+0 [0.03937513]
+0 [0.0217424]
+0 [0.02661391]
+0 [0.01569384]
+0 [0.0146195]
+0 [0.01786014]
+0 [0.00901575]
+0 [6.645918e-05]
+0 [0.01243898]
+0 [0.04184574]
+0 [0.02131343]
+0 [0.01852861]
+0 [0.01206227]
+0 [0.02960758]
+0 [-0.00438982]
+0 [0.00695133]
+0 [0.00983213]
+0 [0.01731607]
+0 [0.00940898]
+0 [0.00218403]
+0 [-0.01886359]
+0 [-0.00103849]
+0 [0.00681382]
+0 [-0.00050205]
+0 [0.00656785]
+0 [0.00852185]
+0 [0.00895256]
+0 [0.06509952]
+0 [0.00995076]
+0 [0.0120371]
+0 [0.00738144]
+0 [0.00979954]
+0 [0.01981828]
+0 [0.0105927]
+0 [0.00192413]
+0 [-0.00377476]

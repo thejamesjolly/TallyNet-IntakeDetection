@@ -1,0 +1,10 @@
+BiteThresh = 0.600; Eval=Dong_PtVsPt,       Dataset=OHO_Dom_v2.pkl, Fold=1 of 5, WinTol=8; 84.830 75.843 96.233 562    22     179   
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OHO_Dom_v2.pkl, Fold=1 of 5, WinTol=8; 81.208 72.605 92.123 538    46     203   
+BiteThresh = 0.600; Eval=Dong_PtVsPt,       Dataset=OHO_Dom_v2.pkl, Fold=2 of 5, WinTol=8; 88.223 85.541 91.079 633    62     107   
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OHO_Dom_v2.pkl, Fold=2 of 5, WinTol=8; 83.624 81.081 86.331 600    95     140   
+BiteThresh = 0.600; Eval=Dong_PtVsPt,       Dataset=OHO_Dom_v2.pkl, Fold=3 of 5, WinTol=8; 91.700 89.231 94.309 580    35     70    
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OHO_Dom_v2.pkl, Fold=3 of 5, WinTol=8; 87.115 84.769 89.593 551    64     99    
+BiteThresh = 0.600; Eval=Dong_PtVsPt,       Dataset=OHO_Dom_v2.pkl, Fold=4 of 5, WinTol=8; 88.955 88.559 89.355 596    71     77    
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OHO_Dom_v2.pkl, Fold=4 of 5, WinTol=8; 86.119 85.736 86.507 577    90     96    
+BiteThresh = 0.600; Eval=Dong_PtVsPt,       Dataset=OHO_Dom_v2.pkl, Fold=0 of 5, WinTol=8; 88.365 85.243 91.723 543    49     94    
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OHO_Dom_v2.pkl, Fold=0 of 5, WinTol=8; 85.110 82.104 88.345 523    69     114   

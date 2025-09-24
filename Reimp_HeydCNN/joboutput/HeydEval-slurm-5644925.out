@@ -1,0 +1,57 @@
+Running inside Clemson-DND Segment...
+2025-09-23 00:11:22.235219: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /software/slurm/spackages/linux-rocky8-x86_64/gcc-12.3.0/cuda-12.3.0-p2hoh7xwcu52zilqglv3nnc5bwnritue/lib64:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/anaconda3-2023.09-0-3mhml42fa64byxqyd5fig5tbih625dp2/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib64
+2025-09-23 00:11:22.236210: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2025-09-23 00:11:22.236250: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (node0355.palmetto.clemson.edu): /proc/driver/nvidia/version does not exist
+2025-09-23 00:11:22.236546: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2025-09-23 00:11:22.256248: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2199855000 Hz
+2025-09-23 00:11:22.256680: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55acb86b5620 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2025-09-23 00:11:22.256715: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Traceback (most recent call last):
+  File "Eval_HeydCNN.py", line 379, in <module>
+    for currDetection in currDets:
+NameError: name 'currDets' is not defined
+2025-09-23 00:11:57.209657: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /software/slurm/spackages/linux-rocky8-x86_64/gcc-12.3.0/cuda-12.3.0-p2hoh7xwcu52zilqglv3nnc5bwnritue/lib64:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/anaconda3-2023.09-0-3mhml42fa64byxqyd5fig5tbih625dp2/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib64
+2025-09-23 00:11:57.209715: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2025-09-23 00:11:57.209745: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (node0355.palmetto.clemson.edu): /proc/driver/nvidia/version does not exist
+2025-09-23 00:11:57.210040: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2025-09-23 00:11:57.230255: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2199855000 Hz
+2025-09-23 00:11:57.230675: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x560525a64fb0 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2025-09-23 00:11:57.230710: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Traceback (most recent call last):
+  File "Eval_HeydCNN.py", line 379, in <module>
+    for currDetection in currDets:
+NameError: name 'currDets' is not defined
+2025-09-23 00:12:33.851637: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /software/slurm/spackages/linux-rocky8-x86_64/gcc-12.3.0/cuda-12.3.0-p2hoh7xwcu52zilqglv3nnc5bwnritue/lib64:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/anaconda3-2023.09-0-3mhml42fa64byxqyd5fig5tbih625dp2/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib64
+2025-09-23 00:12:33.851701: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2025-09-23 00:12:33.851730: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (node0355.palmetto.clemson.edu): /proc/driver/nvidia/version does not exist
+2025-09-23 00:12:33.851969: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2025-09-23 00:12:33.871241: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2199855000 Hz
+2025-09-23 00:12:33.871670: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x558f44766390 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2025-09-23 00:12:33.871705: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Traceback (most recent call last):
+  File "Eval_HeydCNN.py", line 379, in <module>
+    for currDetection in currDets:
+NameError: name 'currDets' is not defined
+2025-09-23 00:13:08.660782: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /software/slurm/spackages/linux-rocky8-x86_64/gcc-12.3.0/cuda-12.3.0-p2hoh7xwcu52zilqglv3nnc5bwnritue/lib64:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/anaconda3-2023.09-0-3mhml42fa64byxqyd5fig5tbih625dp2/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib64
+2025-09-23 00:13:08.660836: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2025-09-23 00:13:08.660878: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (node0355.palmetto.clemson.edu): /proc/driver/nvidia/version does not exist
+2025-09-23 00:13:08.661179: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2025-09-23 00:13:08.681235: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2199855000 Hz
+2025-09-23 00:13:08.681660: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x561443b2ea70 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2025-09-23 00:13:08.681694: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Traceback (most recent call last):
+  File "Eval_HeydCNN.py", line 379, in <module>
+    for currDetection in currDets:
+NameError: name 'currDets' is not defined
+2025-09-23 00:13:47.414828: W tensorflow/stream_executor/platform/default/dso_loader.cc:55] Could not load dynamic library 'libcuda.so.1'; dlerror: libcuda.so.1: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /software/slurm/spackages/linux-rocky8-x86_64/gcc-12.3.0/cuda-12.3.0-p2hoh7xwcu52zilqglv3nnc5bwnritue/lib64:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/anaconda3-2023.09-0-3mhml42fa64byxqyd5fig5tbih625dp2/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib:/software/slurm/spackages/linux-rocky8-x86_64/gcc-12.2.0/gcc-13.2.0-syd6gd5bzt4ugi5fc6dh2efw46jakd6t/lib64
+2025-09-23 00:13:47.414883: E tensorflow/stream_executor/cuda/cuda_driver.cc:313] failed call to cuInit: UNKNOWN ERROR (303)
+2025-09-23 00:13:47.414912: I tensorflow/stream_executor/cuda/cuda_diagnostics.cc:156] kernel driver does not appear to be running on this host (node0355.palmetto.clemson.edu): /proc/driver/nvidia/version does not exist
+2025-09-23 00:13:47.415181: I tensorflow/core/platform/cpu_feature_guard.cc:143] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX
+2025-09-23 00:13:47.435264: I tensorflow/core/platform/profile_utils/cpu_utils.cc:102] CPU Frequency: 2199855000 Hz
+2025-09-23 00:13:47.435687: I tensorflow/compiler/xla/service/service.cc:168] XLA service 0x55c679bb1330 initialized for platform Host (this does not guarantee that XLA will be used). Devices:
+2025-09-23 00:13:47.435722: I tensorflow/compiler/xla/service/service.cc:176]   StreamExecutor device (0): Host, Default Version
+Traceback (most recent call last):
+  File "Eval_HeydCNN.py", line 379, in <module>
+    for currDetection in currDets:
+NameError: name 'currDets' is not defined
+FINISHED EVALUATING.

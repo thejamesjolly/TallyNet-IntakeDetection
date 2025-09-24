@@ -1,0 +1,10 @@
+BiteThresh = 0.350; Eval=Dong_PtVsPt      , Dataset=Dnd_OneHandOreba.pkl, Fold=1 of 5, WinTol=8; 81.155 82.577 79.781 801    203    169   
+BiteThresh = 0.350; Eval=Kyritsis_PtVsWind, Dataset=Dnd_OneHandOreba.pkl, Fold=1 of 5, WinTol=8; 78.419 79.794 77.092 774    230    196   
+BiteThresh = 0.400; Eval=Dong_PtVsPt      , Dataset=Dnd_OneHandOreba.pkl, Fold=2 of 5, WinTol=8; 81.570 81.928 81.216 748    173    165   
+BiteThresh = 0.400; Eval=Kyritsis_PtVsWind, Dataset=Dnd_OneHandOreba.pkl, Fold=2 of 5, WinTol=8; 76.554 76.889 76.221 702    219    211   
+BiteThresh = 0.250; Eval=Dong_PtVsPt      , Dataset=Dnd_OneHandOreba.pkl, Fold=3 of 5, WinTol=8; 80.801 79.171 82.500 726    154    191   
+BiteThresh = 0.250; Eval=Kyritsis_PtVsWind, Dataset=Dnd_OneHandOreba.pkl, Fold=3 of 5, WinTol=8; 77.017 75.463 78.636 692    188    225   
+BiteThresh = 0.300; Eval=Dong_PtVsPt      , Dataset=Dnd_OneHandOreba.pkl, Fold=4 of 5, WinTol=8; 78.729 77.576 79.917 768    193    222   
+BiteThresh = 0.300; Eval=Kyritsis_PtVsWind, Dataset=Dnd_OneHandOreba.pkl, Fold=4 of 5, WinTol=8; 74.423 73.333 75.546 726    235    264   
+BiteThresh = 0.300; Eval=Dong_PtVsPt      , Dataset=Dnd_OneHandOreba.pkl, Fold=0 of 5, WinTol=8; 79.007 79.600 78.424 796    219    204   
+BiteThresh = 0.300; Eval=Kyritsis_PtVsWind, Dataset=Dnd_OneHandOreba.pkl, Fold=0 of 5, WinTol=8; 75.136 75.700 74.581 757    258    243   

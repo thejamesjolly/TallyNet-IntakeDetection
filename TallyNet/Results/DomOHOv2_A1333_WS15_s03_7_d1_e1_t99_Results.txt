@@ -1,0 +1,5 @@
+93.815 91.093 96.705 675 23 66 Models/DomOHOv2_A1333_WS15_s03_7/models/fold1 1 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.826 94.459 93.200 699 51 41 Models/DomOHOv2_A1333_WS15_s03_7/models/fold2 2 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+96.239 96.462 96.018 627 26 23 Models/DomOHOv2_A1333_WS15_s03_7/models/fold3 3 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.548 90.490 96.820 609 20 64 Models/DomOHOv2_A1333_WS15_s03_7/models/fold4 4 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.735 90.424 97.297 576 16 61 Models/DomOHOv2_A1333_WS15_s03_7/models/fold0 0 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt

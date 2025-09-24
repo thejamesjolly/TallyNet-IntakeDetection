@@ -1,0 +1,5 @@
+91.803 86.910 97.281 644 18 97 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DomOHO_A1333_WS15_s03_6/models/fold1 1 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.907 95.811 92.078 709 61 31 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DomOHO_A1333_WS15_s03_6/models/fold2 2 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+95.392 95.538 95.245 621 31 29 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DomOHO_A1333_WS15_s03_6/models/fold3 3 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+92.607 88.410 97.222 595 17 78 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DomOHO_A1333_WS15_s03_6/models/fold4 4 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+94.118 92.936 95.330 592 29 45 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DomOHO_A1333_WS15_s03_6/models/fold0 0 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt

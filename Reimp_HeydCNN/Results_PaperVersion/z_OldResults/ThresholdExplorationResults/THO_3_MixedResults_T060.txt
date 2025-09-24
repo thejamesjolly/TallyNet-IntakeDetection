@@ -1,0 +1,10 @@
+BiteThresh = 0.600; Eval=Dong_PtVsPt      , Dataset=OREBA_TwoHands.pkl, Fold=1 of 5, WinTol=8; 88.266 87.629 88.912 850    106    120   
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OREBA_TwoHands.pkl, Fold=1 of 5, WinTol=8; 85.566 84.948 86.192 824    132    146   
+BiteThresh = 0.600; Eval=Dong_PtVsPt      , Dataset=OREBA_TwoHands.pkl, Fold=2 of 5, WinTol=8; 87.943 88.280 87.609 806    114    107   
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OREBA_TwoHands.pkl, Fold=2 of 5, WinTol=8; 84.779 85.104 84.457 777    143    136   
+BiteThresh = 0.600; Eval=Dong_PtVsPt      , Dataset=OREBA_TwoHands.pkl, Fold=3 of 5, WinTol=8; 91.453 93.348 89.634 856    99     61    
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OREBA_TwoHands.pkl, Fold=3 of 5, WinTol=8; 88.248 90.076 86.492 826    129    91    
+BiteThresh = 0.600; Eval=Dong_PtVsPt      , Dataset=OREBA_TwoHands.pkl, Fold=4 of 5, WinTol=8; 87.241 80.808 94.787 800    44     190   
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OREBA_TwoHands.pkl, Fold=4 of 5, WinTol=8; 82.879 76.768 90.047 760    84     230   
+BiteThresh = 0.600; Eval=Dong_PtVsPt      , Dataset=OREBA_TwoHands.pkl, Fold=0 of 5, WinTol=8; 90.049 91.400 88.738 914    116    86    
+BiteThresh = 0.600; Eval=Kyritsis_PtVsWind, Dataset=OREBA_TwoHands.pkl, Fold=0 of 5, WinTol=8; 86.601 87.900 85.340 879    151    121   

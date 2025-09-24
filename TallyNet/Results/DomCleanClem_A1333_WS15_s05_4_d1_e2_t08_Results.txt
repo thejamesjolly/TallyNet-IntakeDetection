@@ -1,0 +1,5 @@
+92.282 91.531 93.046 3880 290 359 Models/DomCleanClem_A1333_WS15_s05_4/models/fold1 1 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+91.311 90.541 92.093 3867 332 404 Models/DomCleanClem_A1333_WS15_s05_4/models/fold2 2 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+91.641 90.420 92.896 3426 262 363 Models/DomCleanClem_A1333_WS15_s05_4/models/fold3 3 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+92.640 92.929 92.354 3877 321 295 Models/DomCleanClem_A1333_WS15_s05_4/models/fold4 4 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt
+91.113 91.517 90.713 3819 391 354 Models/DomCleanClem_A1333_WS15_s05_4/models/fold0 0 Eval=Kyritsis_PtVsWind WIN_TOL=8.0 Place=Midpt

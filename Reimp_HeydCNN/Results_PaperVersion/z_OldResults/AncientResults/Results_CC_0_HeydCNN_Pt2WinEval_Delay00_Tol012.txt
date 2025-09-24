@@ -1,0 +1,10 @@
+FoldSplitFlag   = 1
+Database Flag   = 3
+!!! WindowStep currently hard-coded in Eval_HeydReimp.py !!!
+WindowStep      = 0.25
+Window Tol      = 12
+78.662 77.028 80.368 3799 928 1133 810 118 HeydCNN_CC_0/models/fold1 1 Thr=0.650 Tol=12.000 Eval=TolKyrit
+80.154 76.260 84.466 3752 690 1168 585 105 HeydCNN_CC_0/models/fold2 2 Thr=0.650 Tol=12.000 Eval=TolKyrit
+82.214 83.646 80.831 4107 974 803 852 122 HeydCNN_CC_0/models/fold3 3 Thr=0.650 Tol=12.000 Eval=TolKyrit
+79.756 77.342 82.326 3922 842 1149 729 113 HeydCNN_CC_0/models/fold4 4 Thr=0.650 Tol=12.000 Eval=TolKyrit
+78.841 76.811 80.982 3266 767 986 664 103 HeydCNN_CC_0/models/fold0 0 Thr=0.650 Tol=12.000 Eval=TolKyrit

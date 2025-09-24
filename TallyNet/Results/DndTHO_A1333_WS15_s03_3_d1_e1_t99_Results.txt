@@ -1,0 +1,5 @@
+94.255 95.567 92.979 927 70 43 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndTHO_A1333_WS15_s03_3/models/fold1 1 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.844 92.662 95.056 846 44 67 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndTHO_A1333_WS15_s03_3/models/fold2 2 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+94.703 96.510 92.962 885 67 32 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndTHO_A1333_WS15_s03_3/models/fold3 3 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+93.537 92.828 94.256 919 56 71 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndTHO_A1333_WS15_s03_3/models/fold4 4 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
+94.888 92.800 97.071 928 28 72 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndTHO_A1333_WS15_s03_3/models/fold0 0 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt

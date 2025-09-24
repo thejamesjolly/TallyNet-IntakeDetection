@@ -1,0 +1,20 @@
+/scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/
+Sending Detections to new folder /scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/...
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=Dom_Clemson.pkl, Fold=1 of 5, WinTol=8; 82.474 92.640 74.319 3927   1357   312   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=Dom_Clemson.pkl, Fold=1 of 5, WinTol=8; 80.521 90.446 72.559 3834   1450   405   
+/scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/
+sending Detections to existing folder /scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/...
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=Dom_Clemson.pkl, Fold=2 of 5, WinTol=8; 79.985 75.228 85.384 3213   550    1058  
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=Dom_Clemson.pkl, Fold=2 of 5, WinTol=8; 76.176 71.646 81.318 3060   703    1211  
+/scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/
+sending Detections to existing folder /scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/...
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=Dom_Clemson.pkl, Fold=3 of 5, WinTol=8; 82.890 89.628 77.094 3396   1009   393   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=Dom_Clemson.pkl, Fold=3 of 5, WinTol=8; 80.498 87.041 74.869 3298   1107   491   
+/scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/
+sending Detections to existing folder /scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/...
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=Dom_Clemson.pkl, Fold=4 of 5, WinTol=8; 84.356 82.526 86.269 3443   548    729   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=Dom_Clemson.pkl, Fold=4 of 5, WinTol=8; 81.759 79.986 83.613 3337   654    835   
+/scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/
+sending Detections to existing folder /scratch/jpjolly/HeydDets/Detections/DomClemson/DomClem_HeydCNN_4/...
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=Dom_Clemson.pkl, Fold=0 of 5, WinTol=8; 84.923 88.953 81.243 3712   857    461   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=Dom_Clemson.pkl, Fold=0 of 5, WinTol=8; 82.132 86.029 78.573 3590   979    583   

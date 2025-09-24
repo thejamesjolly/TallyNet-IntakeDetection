@@ -1,0 +1,10 @@
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=ClemCafe.pkl, Fold=1 of 5, WinTol=8; 81.669 79.988 83.421 3945   784    987   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=ClemCafe.pkl, Fold=1 of 5, WinTol=8; 78.418 76.805 80.102 3788   941    1144  
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=ClemCafe.pkl, Fold=2 of 5, WinTol=8; 81.812 83.882 79.841 4127   1042   793   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=ClemCafe.pkl, Fold=2 of 5, WinTol=8; 77.272 79.228 75.411 3898   1271   1022  
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=ClemCafe.pkl, Fold=3 of 5, WinTol=8; 80.661 76.538 85.254 3758   650    1152  
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=ClemCafe.pkl, Fold=3 of 5, WinTol=8; 76.690 72.770 81.057 3573   835    1337  
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=ClemCafe.pkl, Fold=4 of 5, WinTol=8; 84.072 80.615 87.838 4088   566    983   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=ClemCafe.pkl, Fold=4 of 5, WinTol=8; 79.938 76.652 83.520 3887   767    1184  
+BiteThresh = 0.650; Eval=Dong_PtVsPt      , Dataset=ClemCafe.pkl, Fold=0 of 5, WinTol=8; 80.662 76.811 84.919 3266   580    986   
+BiteThresh = 0.650; Eval=Kyritsis_PtVsWind, Dataset=ClemCafe.pkl, Fold=0 of 5, WinTol=8; 77.180 73.495 81.253 3125   721    1127  
