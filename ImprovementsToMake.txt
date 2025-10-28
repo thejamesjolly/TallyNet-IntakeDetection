@@ -1,7 +1,13 @@
 LIST OF IMPROVEMENTS TO MAKE TO CODE
 
 - Add Input Validation to Cnt2Detect functions in EvalMethodFuncs.py
-- Change Auxillary Functions to take all inputs as time [sec] instead of as data since the resampling confuses whether Stride should be seconds or data 
+- Change Auxiliary Functions to take all inputs as time [sec] instead of as data since the resampling confuses whether Stride should be seconds or data 
     - Noticed in TrainHeydCNN
 - Remake Pickle Files to be consistent and not require different options for Clemson vs OREBA (vs potential future datasets)
-- 
+
+
+CHANGE LOG
+- Renamed "AuxillaryFunctions" to "AuxiliaryFunctions"
+- Updated README.md files
+
+

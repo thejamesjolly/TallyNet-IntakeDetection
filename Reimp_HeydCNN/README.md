@@ -1,9 +1,14 @@
-# README FOR HeydReimp_Comp
+# Directory README: HeydReimp_Comp
 
+This directory contains all files needed to reproduce results from the binary classifier benchmark method,
+which was orignally proposed by Heydarian *et al.*[^HeydCNNPaper].
+This method uses a CNN-LSTM model with 2 seconds of input data to predict probabilities
+of whether the input is an intake gesture or not,
+with these probabilities post-processed into detections of intake over the meal.
 
+Before running code, be sure to activate `env1` to load all dependencies.
 
-TO TRAIN MODELS
-===============
+## TO TRAIN MODELS
 
 To train a model, use the following prompt in the command line.
 
@@ -47,8 +52,7 @@ To train a model, use the following prompt in the command line.
 
 
 
-TO EVALUATE MODELS
-==================
+## TO EVALUATE MODELS
 
 To evaluate a model, run the following command in the command line.
 
@@ -90,3 +94,13 @@ To evaluate a model, run the following command in the command line.
 
 - Full Example
 	* `python Eval_HeydReimp.py Example_HeydCNN_Clem/models/fold3 3 5 1 1 3 12 >> "$Results_Filename"`
+
+
+
+## References
+
+[^HeydCNNPaper] H. Heydarian, P. V. Rouast, M. T. P. Adam, T. Burrows, C. E. Collins and M. E. Rollo,
+"Deep Learning for Intake Gesture Detection From Wrist-Worn Inertial Sensors: 
+The Effects of Data Preprocessing, Sensor Modalities, and Sensor Positions," 
+in IEEE Access, vol. 8, pp. 164936-164949, 2020, doi: 10.1109/ACCESS.2020.3022042.
+keywords: {Sensors;Machine learning;Data models;Data preprocessing;Accelerometers;Gyroscopes;Hidden Markov models;Accelerometer;deep learning;intake gesture detection;gyroscope;wrist-worn}

@@ -1,4 +1,4 @@
-# Directory README: Pickle_Databases Folder
+# Directory README: Pickle_Databases
 
 This directory contains scripts needed to generate the expected pickle files
 used and loaded into all other parts of this repository.

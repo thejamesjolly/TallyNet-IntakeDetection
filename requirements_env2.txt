@@ -1,4 +1,4 @@
-# packages in environment at /home/jpjolly/.conda/envs/CTC_p306:
+# packages in environment for CTC Benchmark Training
 #
 # Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                        main  

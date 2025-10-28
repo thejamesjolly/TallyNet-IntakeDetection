@@ -1,7 +1,13 @@
-**NOTE**
-GenerateClassDataFuncs.py is actually v2_GenerateClassDataFuncs.  Use and test if it is backward compatible with all directories.
+# Directory README: AuxiliaryFunctions
 
-**IDEAS**
-- Try to implement a spike detection method: anytime the probability spikes above the current "expected" total, place a detection
-    - Must keep a calculate of all prior detections to account for the case where a bite falls out of the window as a new bite slides in
+This directory contains shared files potentially used across several other folders.
+
+
+| File           | Purpose |
+| -------------- | ------- |
+| DetectionPlacementFuncs.py | Various placement decoding methods for TallyNet (only midpoint trigger midpoint placement used in paper) |
+| EvaluationMethodFuncs.py   | Evaluation functions used to match detections to GT labels (both point to point and point to window) and print performance metrics. |
+| GenerateClassDataFuncs.py  | Generating labels and training samples from database pickle files |
+
+
 
