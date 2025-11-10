@@ -111,32 +111,32 @@ can be found at [this repository](http://cecas.clemson.edu/~ahoover/).
 
 ## References
 
-[^TallyNetPaper] TBD TallyNet Reference
+[^TallyNetPaper]: TBD TallyNet Reference
 
-[^DongHeurPaper] Y. Dong, A. Hoover, J. Scisco, and E. Muth, 
+[^DongHeurPaper]: Y. Dong, A. Hoover, J. Scisco, and E. Muth, 
 “A new method for measuring meal intake in humans
 via automated wrist motion tracking,”
 Applied psychophysiology and biofeedback, vol. 37, pp. 205–215, 2012
 
-[^HeydCNNPaper] H. Heydarian, P. V. Rouast, M. T. P. Adam, T. Burrows, C. E. Collins and M. E. Rollo,
+[^HeydCNNPaper]: H. Heydarian, P. V. Rouast, M. T. P. Adam, T. Burrows, C. E. Collins and M. E. Rollo,
 "Deep Learning for Intake Gesture Detection From Wrist-Worn Inertial Sensors: 
 The Effects of Data Preprocessing, Sensor Modalities, and Sensor Positions," 
 in IEEE Access, vol. 8, pp. 164936-164949, 2020, doi: 10.1109/ACCESS.2020.3022042.
 keywords: {Sensors;Machine learning;Data models;Data preprocessing;Accelerometers;Gyroscopes;Hidden Markov models;Accelerometer;deep learning;intake gesture detection;gyroscope;wrist-worn}
 
-[^RouastCTCPaper] P. V. Rouast and M. T. P. Adam, 
+[^RouastCTCPaper]: P. V. Rouast and M. T. P. Adam, 
 "Single-Stage Intake Gesture Detection Using CTC Loss
 and Extended Prefix Beam Search,"
 in IEEE Journal of Biomedical and Health Informatics, vol. 25, no. 7, pp. 2733-2743, July 2021, 
 doi: 10.1109/JBHI.2020.3046613.
 keywords: {Decoding;Monitoring;Training;Task analysis;Timing;Estimation;Biological system modeling;CTC;deep learning;dietary monitoring;inertial and video sensors;intake gesture detection}
 
-[^OrebaDataPaper] P. V. Rouast, H. Heydarian, M. T. P. Adam and M. E. Rollo,
+[^OrebaDataPaper]: P. V. Rouast, H. Heydarian, M. T. P. Adam and M. E. Rollo,
 "OREBA: A Dataset for Objectively Recognizing Eating Behavior and Associated Intake," 
 in IEEE Access, vol. 8, pp. 181955-181963, 2020, doi: 10.1109/ACCESS.2020.3026965.
 keywords: {Sensors;Monitoring;Deep learning;Accelerometers;Annotations;Cameras;Synchronization;Dietary monitoring;eating behavior assessment;accelerometer;communal eating;gyroscope;360-degree video camera}
 
-[^ClemsonDataPaper] Y. Shen, J. Salley, E. Muth and A. Hoover,
+[^ClemsonDataPaper]: Y. Shen, J. Salley, E. Muth and A. Hoover,
 "Assessing the Accuracy of a Wrist Motion Tracking Method for Counting Bites Across Demographic and Food Variables," 
 in IEEE Journal of Biomedical and Health Informatics, vol. 21, no. 3, pp. 599-606, May 2017, 
 doi: 10.1109/JBHI.2016.2612580.

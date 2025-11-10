@@ -99,7 +99,7 @@ To evaluate a model, run the following command in the command line.
 
 ## References
 
-[^HeydCNNPaper] H. Heydarian, P. V. Rouast, M. T. P. Adam, T. Burrows, C. E. Collins and M. E. Rollo,
+[^HeydCNNPaper]: H. Heydarian, P. V. Rouast, M. T. P. Adam, T. Burrows, C. E. Collins and M. E. Rollo,
 "Deep Learning for Intake Gesture Detection From Wrist-Worn Inertial Sensors: 
 The Effects of Data Preprocessing, Sensor Modalities, and Sensor Positions," 
 in IEEE Access, vol. 8, pp. 164936-164949, 2020, doi: 10.1109/ACCESS.2020.3022042.

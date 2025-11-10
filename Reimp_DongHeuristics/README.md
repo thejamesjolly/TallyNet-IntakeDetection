@@ -35,7 +35,7 @@ Results in Paper were tuned to produce balanced scores are provided below.
 
 ## References
 
-[^DongHeurPaper] Y. Dong, A. Hoover, J. Scisco, and E. Muth, 
+[^DongHeurPaper]: Y. Dong, A. Hoover, J. Scisco, and E. Muth, 
 “A new method for measuring meal intake in humans
 via automated wrist motion tracking,”
 Applied psychophysiology and biofeedback, vol. 37, pp. 205–215, 2012

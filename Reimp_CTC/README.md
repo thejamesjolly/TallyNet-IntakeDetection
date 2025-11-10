@@ -89,7 +89,7 @@ To produce final performance metrics, results
 
 ## References
 
-[^RouastCTCPaper] P. V. Rouast and M. T. P. Adam, 
+[^RouastCTCPaper]: P. V. Rouast and M. T. P. Adam, 
 "Single-Stage Intake Gesture Detection Using CTC Loss
 and Extended Prefix Beam Search,"
 in IEEE Journal of Biomedical and Health Informatics, vol. 25, no. 7, pp. 2733-2743, July 2021, 

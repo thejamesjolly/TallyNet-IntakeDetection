@@ -164,4 +164,4 @@ To evaluate a model, run the following command in the command line.
 
 
 ## References
-[^TallyNetPaper] TBD TallyNet Reference
+[^TallyNetPaper]: TBD TallyNet Reference
