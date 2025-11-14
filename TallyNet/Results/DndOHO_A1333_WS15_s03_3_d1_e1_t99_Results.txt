@@ -1,5 +1,0 @@
-92.468 91.753 93.194 890 65 80 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndOHO_A1333_WS15_s03_3/models/fold1 1 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-89.333 95.400 83.992 871 166 42 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndOHO_A1333_WS15_s03_3/models/fold2 2 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-91.213 95.093 87.638 872 123 45 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndOHO_A1333_WS15_s03_3/models/fold3 3 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-90.900 88.283 93.676 874 59 116 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndOHO_A1333_WS15_s03_3/models/fold4 4 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-88.983 84.400 94.091 844 53 156 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndOHO_A1333_WS15_s03_3/models/fold0 0 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt

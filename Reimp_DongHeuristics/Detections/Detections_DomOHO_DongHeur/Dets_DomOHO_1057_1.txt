@@ -1,0 +1,20 @@
+Dataset = OREBA One Hand (Dom GT Only); RollThresh [deg/sec] = 25.0; Time2Thresh [sec] = 6.0; Detections given in seconds from start of data
+24.05
+41.16
+56.02
+65.64
+73.66
+83.62
+92.33
+100.58
+108.94
+120.59
+135.05
+145.31
+153.33
+164.50
+174.75
+184.58
+193.20
+204.47
+212.81

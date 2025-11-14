@@ -1,0 +1,17 @@
+Dataset = Clemson; Detections given in seconds from start of data
+28.00
+30.53
+36.40
+46.27
+52.40
+55.73
+76.27
+79.20
+101.33
+129.73
+138.53
+148.67
+171.33
+178.80
+184.80
+196.67

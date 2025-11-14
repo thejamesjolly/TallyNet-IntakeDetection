@@ -5,6 +5,17 @@ proposed by Jolly *et al.*[^TallyNetPaper],
 which uses novel training targets of total counts in a long time window 
 and a decoding scheme to convert these predicted counts into detections over time.
 
+Some example pre-trained models from the paper are provided in the `Models` directory.
+Final detections for these example models are provided in `Detections` directory.
+Both the `Predictions` and `Results` directories are empty, 
+but are used to output results from the evaluation script.
+
+The `HelpfulScripts` directory contains examples of shell scripts 
+to cycle through the datasets and five-fold validation of the models.
+These scripts were originally used with a Slurm scheduler for a university computing cluster,
+and are provided as examples rather than required scripts.
+
+Full commands needed to train and evaluate the TallyNet code are detailed below.
 Before running code, be sure to activate `env1` to load all dependencies.
 
 

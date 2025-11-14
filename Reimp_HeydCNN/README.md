@@ -6,6 +6,13 @@ This method uses a CNN-LSTM model with 2 seconds of input data to predict probab
 of whether the input is an intake gesture or not,
 with these probabilities post-processed into detections of intake over the meal.
 
+Some example pre-trained models from the paper are provided in the `Models` directory.
+Final detections for these example models are provided in `Detections` directory.
+Tuning the threshold used to trigger detections to balance TPR and PPV is necessary,
+and the range of values used are shown in the `PAPER_RECORD_script_HeydCNN_Eval` script.
+The `Results` directories is empty, 
+but are used to output results from the evaluation script.
+
 Before running code, be sure to activate `env1` to load all dependencies.
 
 ## TO TRAIN MODELS

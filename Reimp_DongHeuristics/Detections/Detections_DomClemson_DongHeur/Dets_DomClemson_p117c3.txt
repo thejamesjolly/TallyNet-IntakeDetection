@@ -1,0 +1,16 @@
+Dataset = Clemson(Dom GT Only); RollThresh [deg/sec] = 10.0; Time2Thresh [sec] = 8.0; Detections given in seconds from start of data
+25.47
+67.80
+78.07
+97.00
+117.93
+140.80
+161.40
+176.80
+186.87
+209.00
+220.00
+234.47
+285.13
+310.67
+330.47

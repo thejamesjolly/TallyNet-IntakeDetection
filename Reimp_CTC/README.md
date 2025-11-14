@@ -18,6 +18,18 @@ Orignal Source Repositories can be found at the following links:
 - (CTC TensorFlow Custom Layer)[https://github.com/prouast/ctc-beam-search-op]
 - (CTC Intake Detection)[https://github.com/prouast/ctc-intake-detection/]
 
+## Example Models and Detections
+
+Some example pre-trained models from the paper are provided in the `Models` directory.
+Final detections for these example models are provided in `Detections` directory.
+
+Additionanlly, before getting depenency version issues corrected, 
+the original authors were kind enough to provide 
+their results for the orginal paper[^RouastCTCPaper],
+which was run on a specified train/valid/eval split 
+for the DndTHO and DomClem datasets.
+These detections files are found in the `Detections_ProvidedByAuthors` directory.  
+
 
 ## Data Processing and Custom Layer Creation
 
@@ -84,7 +96,8 @@ matching the 5 fold format of the provided examples.
 
 ### Evaluation
 
-To produce final performance metrics, results
+To produce final performance metrics, instructions are provided
+inside the `README.md` file of the `Evaluation` directory.
 
 
 ## References

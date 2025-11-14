@@ -1,5 +1,0 @@
-91.230 89.124 93.439 4130 290 504 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndClemson_A1333_WS15_s05_3/models/fold1 1 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-90.550 89.855 91.256 4331 415 489 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndClemson_A1333_WS15_s05_3/models/fold2 2 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-92.001 91.956 92.046 3784 327 331 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndClemson_A1333_WS15_s05_3/models/fold3 3 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-91.520 90.859 92.190 4155 352 418 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndClemson_A1333_WS15_s05_3/models/fold4 4 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt
-90.501 87.187 94.078 4178 263 614 /home/jpjolly/TallyNet_ModelsDets_Repo/TallyNet/Models/DndClemson_A1333_WS15_s05_3/models/fold0 0 Eval=Dong_PtVsPt WIN_TOL=99.0 Place=Midpt

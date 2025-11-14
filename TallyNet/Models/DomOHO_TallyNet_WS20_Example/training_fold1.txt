@@ -1,0 +1,173 @@
+ModelArch Input is  1333
+CUT_sec Input is  20.0
+STRIDE_sec input is  0.3
+Training Data coming from file  ./../Pickle_Databases/OHO_Dom_v2.pkl
+RR_Flag Input is  1
+Fold_Index Input is  1
+Folds_Total Input is  5
+Resample Data down to Rate of 15
+python setup complete
+Parsing Training Data...
+Training on Data Split by Round Robin approach...
+...Data parsed in  31.14738702774048  seconds
+Arch 1333
+Architecture Scan of A300 architecture.
+Added Dropout layers to model.
+Using 24 Filters as base in ConvKernels
+Using 24 Nodes in LSTM layers
+Using 24 Neurons in Dense Hidden Layer
+Model: "sequential"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+conv1d (Conv1D)              (None, 298, 24)           456       
+_________________________________________________________________
+batch_normalization (BatchNo (None, 298, 24)           96        
+_________________________________________________________________
+dropout (Dropout)            (None, 298, 24)           0         
+_________________________________________________________________
+conv1d_1 (Conv1D)            (None, 296, 24)           1752      
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 296, 24)           96        
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 296, 24)           0         
+_________________________________________________________________
+max_pooling1d (MaxPooling1D) (None, 148, 24)           0         
+_________________________________________________________________
+conv1d_2 (Conv1D)            (None, 146, 48)           3504      
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 146, 48)           192       
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 146, 48)           0         
+_________________________________________________________________
+conv1d_3 (Conv1D)            (None, 144, 48)           6960      
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 144, 48)           192       
+_________________________________________________________________
+dropout_3 (Dropout)          (None, 144, 48)           0         
+_________________________________________________________________
+max_pooling1d_1 (MaxPooling1 (None, 72, 48)            0         
+_________________________________________________________________
+conv1d_4 (Conv1D)            (None, 68, 72)            17352     
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 68, 72)            288       
+_________________________________________________________________
+dropout_4 (Dropout)          (None, 68, 72)            0         
+_________________________________________________________________
+conv1d_5 (Conv1D)            (None, 64, 72)            25992     
+_________________________________________________________________
+batch_normalization_5 (Batch (None, 64, 72)            288       
+_________________________________________________________________
+dropout_5 (Dropout)          (None, 64, 72)            0         
+_________________________________________________________________
+lstm (LSTM)                  (None, 64, 24)            9312      
+_________________________________________________________________
+lstm_1 (LSTM)                (None, 24)                4704      
+_________________________________________________________________
+flatten (Flatten)            (None, 24)                0         
+_________________________________________________________________
+dropout_6 (Dropout)          (None, 24)                0         
+_________________________________________________________________
+dense (Dense)                (None, 24)                600       
+_________________________________________________________________
+dropout_7 (Dropout)          (None, 24)                0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 1)                 25        
+=================================================================
+Total params: 71,809
+Trainable params: 71,233
+Non-trainable params: 576
+_________________________________________________________________
+training_data of size  (241080, 300, 6)
+Classes of size  (241080,)
+Training...
+Stopping Training when val_loss does not improve for 8 Epochs
+Epoch 1/50
+6781/6781 - 1024s - loss: 0.2440 - mean_absolute_error: 0.3111 - val_loss: 0.4595 - val_mean_absolute_error: 0.3881
+Epoch 2/50
+6781/6781 - 1022s - loss: 0.1303 - mean_absolute_error: 0.2235 - val_loss: 0.4020 - val_mean_absolute_error: 0.3466
+Epoch 3/50
+6781/6781 - 1022s - loss: 0.1040 - mean_absolute_error: 0.1983 - val_loss: 0.2891 - val_mean_absolute_error: 0.2887
+Epoch 4/50
+6781/6781 - 1022s - loss: 0.0923 - mean_absolute_error: 0.1857 - val_loss: 0.2630 - val_mean_absolute_error: 0.2744
+Epoch 5/50
+6781/6781 - 1020s - loss: 0.0844 - mean_absolute_error: 0.1776 - val_loss: 0.2975 - val_mean_absolute_error: 0.2625
+Epoch 6/50
+6781/6781 - 1016s - loss: 0.0790 - mean_absolute_error: 0.1720 - val_loss: 0.2479 - val_mean_absolute_error: 0.2535
+Epoch 7/50
+6781/6781 - 1010s - loss: 0.0748 - mean_absolute_error: 0.1656 - val_loss: 0.2816 - val_mean_absolute_error: 0.2414
+Epoch 8/50
+6781/6781 - 1010s - loss: 0.0716 - mean_absolute_error: 0.1617 - val_loss: 0.2511 - val_mean_absolute_error: 0.2299
+Epoch 9/50
+6781/6781 - 1009s - loss: 0.0697 - mean_absolute_error: 0.1594 - val_loss: 0.3198 - val_mean_absolute_error: 0.2733
+Epoch 10/50
+6781/6781 - 1001s - loss: 0.0678 - mean_absolute_error: 0.1573 - val_loss: 0.2764 - val_mean_absolute_error: 0.2380
+Epoch 11/50
+6781/6781 - 961s - loss: 0.0654 - mean_absolute_error: 0.1546 - val_loss: 0.2815 - val_mean_absolute_error: 0.2467
+Epoch 12/50
+6781/6781 - 961s - loss: 0.0638 - mean_absolute_error: 0.1529 - val_loss: 0.2778 - val_mean_absolute_error: 0.2447
+Epoch 13/50
+6781/6781 - 964s - loss: 0.0628 - mean_absolute_error: 0.1514 - val_loss: 0.2075 - val_mean_absolute_error: 0.2116
+Epoch 14/50
+6781/6781 - 963s - loss: 0.0614 - mean_absolute_error: 0.1493 - val_loss: 0.2343 - val_mean_absolute_error: 0.2303
+Epoch 15/50
+6781/6781 - 963s - loss: 0.0609 - mean_absolute_error: 0.1486 - val_loss: 0.3002 - val_mean_absolute_error: 0.2544
+Epoch 16/50
+6781/6781 - 962s - loss: 0.0593 - mean_absolute_error: 0.1471 - val_loss: 0.2779 - val_mean_absolute_error: 0.2558
+Epoch 17/50
+6781/6781 - 963s - loss: 0.0590 - mean_absolute_error: 0.1464 - val_loss: 0.3136 - val_mean_absolute_error: 0.2452
+Epoch 18/50
+6781/6781 - 963s - loss: 0.0577 - mean_absolute_error: 0.1452 - val_loss: 0.2684 - val_mean_absolute_error: 0.2554
+Epoch 19/50
+6781/6781 - 963s - loss: 0.0560 - mean_absolute_error: 0.1432 - val_loss: 0.3038 - val_mean_absolute_error: 0.2461
+Epoch 20/50
+6781/6781 - 964s - loss: 0.0574 - mean_absolute_error: 0.1441 - val_loss: 0.2410 - val_mean_absolute_error: 0.2181
+Epoch 21/50
+6781/6781 - 948s - loss: 0.0560 - mean_absolute_error: 0.1428 - val_loss: 0.2628 - val_mean_absolute_error: 0.2356
+...Classifier trained in  20746.89625644684  seconds
+Testing
+1/2 [==============>...............] - ETA: 0s - loss: 0.0052 - mean_absolute_error: 0.03672/2 [==============================] - 0s 7ms/step - loss: 0.0042 - mean_absolute_error: 0.0327
+Test accuracy: 0.03268919140100479
+Data sample has input of shape:
+(40, 300, 6)
+Actual, prediction:
+0 [0.01708132]
+0 [0.03359908]
+0 [0.06346482]
+0 [0.06780714]
+0 [0.10529357]
+0 [0.27693182]
+0 [0.24012393]
+0 [0.08072376]
+0 [0.00847512]
+0 [0.00414109]
+0 [0.0050714]
+0 [0.00934178]
+0 [0.01894575]
+0 [0.01190078]
+0 [0.01084203]
+0 [0.0132938]
+0 [0.00845331]
+0 [0.00495565]
+0 [0.00705248]
+0 [0.00431031]
+0 [0.00780404]
+0 [0.01224715]
+0 [0.01131207]
+0 [0.01334935]
+0 [0.01649636]
+0 [0.01212168]
+0 [0.01527017]
+0 [0.02207524]
+0 [0.020877]
+0 [0.0168702]
+0 [0.02059871]
+0 [0.01501459]
+0 [0.01742023]
+0 [0.01971322]
+0 [0.02261943]
+0 [0.02985501]
+0 [0.01671481]
+0 [0.00653863]
+0 [-1.2814999e-05]
+0 [0.018848]
