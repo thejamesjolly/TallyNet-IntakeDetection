@@ -1,0 +1,17 @@
+Dataset = Dnd Clemson; Detections given in seconds from start of data
+25.22
+51.19
+65.34
+91.97
+104.25
+123.00
+129.47
+159.75
+185.53
+204.94
+222.75
+241.03
+253.12
+305.06
+315.94
+332.34

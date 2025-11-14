@@ -1,0 +1,14 @@
+Dataset = Dnd One-Hand OREBA; Detections given in seconds from start of data
+136.73
+187.83
+192.05
+194.20
+208.17
+230.48
+252.42
+263.02
+301.17
+353.39
+357.05
+403.45
+461.11

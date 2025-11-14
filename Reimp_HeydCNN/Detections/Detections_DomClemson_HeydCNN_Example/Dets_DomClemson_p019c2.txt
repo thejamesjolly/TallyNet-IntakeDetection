@@ -1,0 +1,18 @@
+Dataset = Dom Clemson(Dom GT Only); Detections given in seconds from start of data
+88.91
+95.84
+106.53
+113.56
+125.38
+134.28
+149.28
+159.31
+170.75
+178.44
+186.22
+194.66
+202.81
+208.06
+212.38
+224.09
+232.06

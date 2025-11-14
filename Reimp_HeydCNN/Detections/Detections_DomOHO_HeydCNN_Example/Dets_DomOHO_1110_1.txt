@@ -1,0 +1,10 @@
+Dataset = Dom OREBA One Hand (Dom GT Only); Detections given in seconds from start of data
+136.69
+187.50
+192.84
+252.66
+263.25
+301.97
+352.69
+355.31
+357.38
