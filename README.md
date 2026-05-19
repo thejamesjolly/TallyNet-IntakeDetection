@@ -1,4 +1,4 @@
-# TallyNet_IntakeDetection
+# TallyNet-IntakeDetection
 
 Codebase for TallyNet Paper[^TallyNetPaper]. This repository includes the implementation of TallyNet, database preprocessing for intake detection datasets, and benchmark reimplementations (Dong *et al.*[^DongHeurPaper], Heydarian *et al.*[^HeydCNNPaper], Rouast *et al.*[^RouastCTCPaper]).
 
