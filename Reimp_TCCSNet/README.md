@@ -152,7 +152,7 @@ python Eval_TCCSNet.py Models/"$Folder_Name"/models/fold1_best.pt $DatabaseFlag 
 
 ## References
 
-[EssaTCCSNet]: E. Essa and I. R. Abdelmaksoud, 
+[^EssaTCCSNet]: E. Essa and I. R. Abdelmaksoud, 
 “Temporal-channel convolution with self-attention network 
 for human activity recognition using wearable sensors,”
 Knowledge-Based Systems, vol. 278, p. 110867, 2023.
