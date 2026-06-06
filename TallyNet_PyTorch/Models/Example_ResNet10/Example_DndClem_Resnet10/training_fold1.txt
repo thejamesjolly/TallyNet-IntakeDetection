@@ -1,0 +1,169 @@
+Finished Loaded Libraries.
+For reproducibility: Pytorch seed is 13063668421338462463
+Device: cuda
+Finished setting up PyTorch variables.
+Finished Defining training and validation functions.
+Finished defining TallyNet Classifier.
+ModelArch Input is  2001
+CUT_sec Input is  15.0
+STRIDE_sec input is  0.5
+Training Data coming from file  ./../Pickle_Databases/Dnd_Clemson.pkl
+RR_Flag Input is  1
+Fold_Index Input is  1
+Folds_Total Input is  5
+Resample Data down to Rate of 15
+python setup complete
+Parsing Training Data...
+Training on Data Split by Round Robin approach...
+...Data parsed in  19.56580901145935  seconds
+Finished Splitting Data.
+input_length = 225
+Model(
+  (conv1): Conv1DFixedPadding(
+    (conv): Conv1d(6, 64, kernel_size=(1,), stride=(1,), padding=same)
+  )
+  (relu): ReLU(inplace=True)
+  (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+  (conv_blocks): ModuleList(
+    (0): BlockLayer(
+      (blocks): ModuleList(
+        (0): ResBlock(
+          (conv1): Conv1DFixedPadding(
+            (conv): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=same)
+          )
+          (conv2): Conv1DFixedPadding(
+            (conv): Conv1d(64, 64, kernel_size=(3,), stride=(1,), padding=same)
+          )
+          (conv_sc): Conv1DFixedPadding(
+            (conv): Conv1d(64, 64, kernel_size=(1,), stride=(1,), padding=same)
+          )
+          (relu): ReLU(inplace=True)
+          (bn1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (bn2): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (1): BlockLayer(
+      (blocks): ModuleList(
+        (0): ResBlock(
+          (conv1): Conv1DFixedPadding(
+            (conv): Conv1d(64, 128, kernel_size=(3,), stride=(1,), padding=same)
+          )
+          (conv2): Conv1DFixedPadding(
+            (conv): Conv1d(128, 128, kernel_size=(3,), stride=(1,), padding=same)
+          )
+          (conv_sc): Conv1DFixedPadding(
+            (conv): Conv1d(64, 128, kernel_size=(1,), stride=(1,), padding=same)
+          )
+          (relu): ReLU(inplace=True)
+          (bn1): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (bn2): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (2): BlockLayer(
+      (blocks): ModuleList(
+        (0): ResBlock(
+          (conv1): Conv1DFixedPadding(
+            (conv): Conv1d(128, 256, kernel_size=(5,), stride=(2,), padding=valid)
+          )
+          (conv2): Conv1DFixedPadding(
+            (conv): Conv1d(256, 256, kernel_size=(5,), stride=(1,), padding=same)
+          )
+          (conv_sc): Conv1DFixedPadding(
+            (conv): Conv1d(128, 256, kernel_size=(1,), stride=(2,), padding=valid)
+          )
+          (relu): ReLU(inplace=True)
+          (bn1): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (bn2): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+    (3): BlockLayer(
+      (blocks): ModuleList(
+        (0): ResBlock(
+          (conv1): Conv1DFixedPadding(
+            (conv): Conv1d(256, 512, kernel_size=(5,), stride=(1,), padding=same)
+          )
+          (conv2): Conv1DFixedPadding(
+            (conv): Conv1d(512, 512, kernel_size=(5,), stride=(1,), padding=same)
+          )
+          (conv_sc): Conv1DFixedPadding(
+            (conv): Conv1d(256, 512, kernel_size=(1,), stride=(1,), padding=same)
+          )
+          (relu): ReLU(inplace=True)
+          (bn1): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+          (bn2): BatchNorm1d(512, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+        )
+      )
+    )
+  )
+  (lstm_blocks): ModuleList(
+    (0): LSTMLayer(
+      (lstm): LSTM(512, 64, batch_first=True)
+    )
+  )
+  (classifier): Linear(in_features=64, out_features=1, bias=True)
+)
+Number of parameters in TallyNet model: 2887361
+training_data of size  (601207, 225, 6)
+Classes of size  (601207,)
+Training...
+	Train epoch 1: [0/571147 (0%)]	Loss: 1.555686	Train epoch 1: [64000/571147 (11%)]	Loss: 0.412051	Train epoch 1: [128000/571147 (22%)]	Loss: 0.404350	Train epoch 1: [192000/571147 (34%)]	Loss: 0.392587	Train epoch 1: [256000/571147 (45%)]	Loss: 0.225172	Train epoch 1: [320000/571147 (56%)]	Loss: 0.254605	Train epoch 1: [384000/571147 (67%)]	Loss: 0.272234	Train epoch 1: [448000/571147 (78%)]	Loss: 0.355167	Train epoch 1: [512000/571147 (90%)]	Loss: 0.329402
+Test epoch 1: Average loss: 0.3265
+	Train epoch 2: [0/571147 (0%)]	Loss: 0.254372	Train epoch 2: [64000/571147 (11%)]	Loss: 0.357954	Train epoch 2: [128000/571147 (22%)]	Loss: 0.227004	Train epoch 2: [192000/571147 (34%)]	Loss: 0.239285	Train epoch 2: [256000/571147 (45%)]	Loss: 0.212340	Train epoch 2: [320000/571147 (56%)]	Loss: 0.199215	Train epoch 2: [384000/571147 (67%)]	Loss: 0.201113	Train epoch 2: [448000/571147 (78%)]	Loss: 0.200948	Train epoch 2: [512000/571147 (90%)]	Loss: 0.211369
+Test epoch 2: Average loss: 0.2986
+	Train epoch 3: [0/571147 (0%)]	Loss: 0.225263	Train epoch 3: [64000/571147 (11%)]	Loss: 0.213991	Train epoch 3: [128000/571147 (22%)]	Loss: 0.302685	Train epoch 3: [192000/571147 (34%)]	Loss: 0.338612	Train epoch 3: [256000/571147 (45%)]	Loss: 0.276426	Train epoch 3: [320000/571147 (56%)]	Loss: 0.212181	Train epoch 3: [384000/571147 (67%)]	Loss: 0.224875	Train epoch 3: [448000/571147 (78%)]	Loss: 0.236566	Train epoch 3: [512000/571147 (90%)]	Loss: 0.139546
+Test epoch 3: Average loss: 0.2880
+	Train epoch 4: [0/571147 (0%)]	Loss: 0.183299	Train epoch 4: [64000/571147 (11%)]	Loss: 0.193865	Train epoch 4: [128000/571147 (22%)]	Loss: 0.260471	Train epoch 4: [192000/571147 (34%)]	Loss: 0.158623	Train epoch 4: [256000/571147 (45%)]	Loss: 0.156463	Train epoch 4: [320000/571147 (56%)]	Loss: 0.220850	Train epoch 4: [384000/571147 (67%)]	Loss: 0.112793	Train epoch 4: [448000/571147 (78%)]	Loss: 0.183360	Train epoch 4: [512000/571147 (90%)]	Loss: 0.138103
+Test epoch 4: Average loss: 0.2678
+	Train epoch 5: [0/571147 (0%)]	Loss: 0.124978	Train epoch 5: [64000/571147 (11%)]	Loss: 0.134644	Train epoch 5: [128000/571147 (22%)]	Loss: 0.124110	Train epoch 5: [192000/571147 (34%)]	Loss: 0.119977	Train epoch 5: [256000/571147 (45%)]	Loss: 0.116150	Train epoch 5: [320000/571147 (56%)]	Loss: 0.126618	Train epoch 5: [384000/571147 (67%)]	Loss: 0.177259	Train epoch 5: [448000/571147 (78%)]	Loss: 0.111313	Train epoch 5: [512000/571147 (90%)]	Loss: 0.137532
+Test epoch 5: Average loss: 0.2744
+Saving Checkpoint model at epoch 5...
+Saving model at filename: DndClem_Resnet_Run1/models/fold1_final.pt
+...Classifier trained in  1210.642541885376  seconds
+Testing
+Data sample has input of shape:
+torch.Size([40, 6, 225])
+Test loss (MSE): 2.50587940057436e-05
+Actual, prediction:
+tensor(0., device='cuda:0') tensor(0.0648, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0751, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0886, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0949, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0949, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1338, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1441, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1829, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.2278, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.2226, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1111, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1004, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0476, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0565, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1361, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0556, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0350, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0352, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0346, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0356, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0755, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0665, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0048, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0091, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0049, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0075, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0052, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0197, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0165, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0202, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0304, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0397, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0210, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0237, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0424, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0175, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1188, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.6653, device='cuda:0')
+tensor(1., device='cuda:0') tensor(0.8830, device='cuda:0')
+tensor(1., device='cuda:0') tensor(1.0471, device='cuda:0')
