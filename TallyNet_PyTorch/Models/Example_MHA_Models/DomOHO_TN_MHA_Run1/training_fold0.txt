@@ -1,0 +1,151 @@
+Finished Loaded Libraries.
+For reproducibility: Pytorch seed is 12300624144897795322
+Device: cuda
+Finished setting up PyTorch variables.
+Finished Defining training and validation functions.
+Finished defining TallyNet Classifier.
+ModelArch Input is  4001
+CUT_sec Input is  15.0
+STRIDE_sec input is  0.3
+Training Data coming from file  ./../Pickle_Databases/Dom_OneHandOreba.pkl
+RR_Flag Input is  1
+Fold_Index Input is  0
+Folds_Total Input is  5
+Resample Data down to Rate of 15
+python setup complete
+Parsing Training Data...
+Training on Data Split by Round Robin approach...
+...Data parsed in  13.191800117492676  seconds
+Finished Splitting Data.
+CNN_MHA_Classifier(
+  (feature_extractor): Sequential(
+    (0): Conv1d(6, 64, kernel_size=(3,), stride=(1,))
+    (1): BatchNorm1d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (2): ReLU()
+    (3): MaxPool1d(kernel_size=3, stride=3, padding=0, dilation=1, ceil_mode=False)
+    (4): Conv1d(64, 128, kernel_size=(3,), stride=(1,))
+    (5): BatchNorm1d(128, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (6): ReLU()
+    (7): MaxPool1d(kernel_size=3, stride=3, padding=0, dilation=1, ceil_mode=False)
+    (8): Conv1d(128, 256, kernel_size=(3,), stride=(1,))
+    (9): BatchNorm1d(256, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    (10): ReLU()
+    (11): MaxPool1d(kernel_size=3, stride=3, padding=0, dilation=1, ceil_mode=False)
+  )
+  (attention_prep): Linear(in_features=256, out_features=128, bias=True)
+  (attention_block): MultiheadAttention(
+    (out_proj): NonDynamicallyQuantizableLinear(in_features=128, out_features=128, bias=True)
+  )
+  (regression_block): Sequential(
+    (0): Dropout(p=0.5, inplace=False)
+    (1): Flatten(start_dim=1, end_dim=-1)
+    (2): Linear(in_features=896, out_features=128, bias=True)
+    (3): Linear(in_features=128, out_features=1, bias=True)
+  )
+)
+Number of parameters in TallyNet model: 339265
+training_data of size  (239475, 225, 6)
+Classes of size  (239475,)
+Training...
+	Train epoch 1: [0/227502 (0%)]	Loss: 1.285491	Train epoch 1: [64000/227502 (28%)]	Loss: 0.151949	Train epoch 1: [128000/227502 (56%)]	Loss: 0.151521	Train epoch 1: [192000/227502 (84%)]	Loss: 0.084411
+Test epoch 1: Average loss: 0.1255
+	Train epoch 2: [0/227502 (0%)]	Loss: 0.101677	Train epoch 2: [64000/227502 (28%)]	Loss: 0.077432	Train epoch 2: [128000/227502 (56%)]	Loss: 0.101333	Train epoch 2: [192000/227502 (84%)]	Loss: 0.087849
+Test epoch 2: Average loss: 0.1125
+	Train epoch 3: [0/227502 (0%)]	Loss: 0.107633	Train epoch 3: [64000/227502 (28%)]	Loss: 0.060244	Train epoch 3: [128000/227502 (56%)]	Loss: 0.069753	Train epoch 3: [192000/227502 (84%)]	Loss: 0.061533
+Test epoch 3: Average loss: 0.1229
+	Train epoch 4: [0/227502 (0%)]	Loss: 0.093940	Train epoch 4: [64000/227502 (28%)]	Loss: 0.053146	Train epoch 4: [128000/227502 (56%)]	Loss: 0.065213	Train epoch 4: [192000/227502 (84%)]	Loss: 0.051416
+Test epoch 4: Average loss: 0.1157
+	Train epoch 5: [0/227502 (0%)]	Loss: 0.041580	Train epoch 5: [64000/227502 (28%)]	Loss: 0.101012	Train epoch 5: [128000/227502 (56%)]	Loss: 0.038110	Train epoch 5: [192000/227502 (84%)]	Loss: 0.045058
+Test epoch 5: Average loss: 0.1041
+Saving Checkpoint model at epoch 5...
+	Train epoch 6: [0/227502 (0%)]	Loss: 0.038754	Train epoch 6: [64000/227502 (28%)]	Loss: 0.050380	Train epoch 6: [128000/227502 (56%)]	Loss: 0.037712	Train epoch 6: [192000/227502 (84%)]	Loss: 0.037517
+Test epoch 6: Average loss: 0.0951
+	Train epoch 7: [0/227502 (0%)]	Loss: 0.045647	Train epoch 7: [64000/227502 (28%)]	Loss: 0.049500	Train epoch 7: [128000/227502 (56%)]	Loss: 0.056351	Train epoch 7: [192000/227502 (84%)]	Loss: 0.051269
+Test epoch 7: Average loss: 0.0980
+	Train epoch 8: [0/227502 (0%)]	Loss: 0.038622	Train epoch 8: [64000/227502 (28%)]	Loss: 0.030726	Train epoch 8: [128000/227502 (56%)]	Loss: 0.051249	Train epoch 8: [192000/227502 (84%)]	Loss: 0.057473
+Test epoch 8: Average loss: 0.0939
+	Train epoch 9: [0/227502 (0%)]	Loss: 0.040742	Train epoch 9: [64000/227502 (28%)]	Loss: 0.045651	Train epoch 9: [128000/227502 (56%)]	Loss: 0.027979	Train epoch 9: [192000/227502 (84%)]	Loss: 0.058582
+Test epoch 9: Average loss: 0.0889
+	Train epoch 10: [0/227502 (0%)]	Loss: 0.040485	Train epoch 10: [64000/227502 (28%)]	Loss: 0.048941	Train epoch 10: [128000/227502 (56%)]	Loss: 0.042361	Train epoch 10: [192000/227502 (84%)]	Loss: 0.050464
+Test epoch 10: Average loss: 0.0882
+Saving Checkpoint model at epoch 10...
+	Train epoch 11: [0/227502 (0%)]	Loss: 0.056521	Train epoch 11: [64000/227502 (28%)]	Loss: 0.028575	Train epoch 11: [128000/227502 (56%)]	Loss: 0.031651	Train epoch 11: [192000/227502 (84%)]	Loss: 0.022618
+Test epoch 11: Average loss: 0.1062
+	Train epoch 12: [0/227502 (0%)]	Loss: 0.023003	Train epoch 12: [64000/227502 (28%)]	Loss: 0.047791	Train epoch 12: [128000/227502 (56%)]	Loss: 0.042114	Train epoch 12: [192000/227502 (84%)]	Loss: 0.025392
+Test epoch 12: Average loss: 0.0918
+	Train epoch 13: [0/227502 (0%)]	Loss: 0.020318	Train epoch 13: [64000/227502 (28%)]	Loss: 0.023953	Train epoch 13: [128000/227502 (56%)]	Loss: 0.030201	Train epoch 13: [192000/227502 (84%)]	Loss: 0.030951
+Test epoch 13: Average loss: 0.0882
+	Train epoch 14: [0/227502 (0%)]	Loss: 0.024664	Train epoch 14: [64000/227502 (28%)]	Loss: 0.019085	Train epoch 14: [128000/227502 (56%)]	Loss: 0.021394	Train epoch 14: [192000/227502 (84%)]	Loss: 0.024797
+Test epoch 14: Average loss: 0.1167
+	Train epoch 15: [0/227502 (0%)]	Loss: 0.028972	Train epoch 15: [64000/227502 (28%)]	Loss: 0.017286	Train epoch 15: [128000/227502 (56%)]	Loss: 0.023690	Train epoch 15: [192000/227502 (84%)]	Loss: 0.029373
+Test epoch 15: Average loss: 0.0955
+Saving Checkpoint model at epoch 15...
+	Train epoch 16: [0/227502 (0%)]	Loss: 0.028452	Train epoch 16: [64000/227502 (28%)]	Loss: 0.019531	Train epoch 16: [128000/227502 (56%)]	Loss: 0.034744	Train epoch 16: [192000/227502 (84%)]	Loss: 0.034287
+Test epoch 16: Average loss: 0.0892
+	Train epoch 17: [0/227502 (0%)]	Loss: 0.025807	Train epoch 17: [64000/227502 (28%)]	Loss: 0.022306	Train epoch 17: [128000/227502 (56%)]	Loss: 0.024188	Train epoch 17: [192000/227502 (84%)]	Loss: 0.018413
+Test epoch 17: Average loss: 0.0918
+	Train epoch 18: [0/227502 (0%)]	Loss: 0.023041	Train epoch 18: [64000/227502 (28%)]	Loss: 0.020815	Train epoch 18: [128000/227502 (56%)]	Loss: 0.019633	Train epoch 18: [192000/227502 (84%)]	Loss: 0.023268
+Test epoch 18: Average loss: 0.0849
+	Train epoch 19: [0/227502 (0%)]	Loss: 0.018220	Train epoch 19: [64000/227502 (28%)]	Loss: 0.033343	Train epoch 19: [128000/227502 (56%)]	Loss: 0.023527	Train epoch 19: [192000/227502 (84%)]	Loss: 0.017954
+Test epoch 19: Average loss: 0.1011
+	Train epoch 20: [0/227502 (0%)]	Loss: 0.024016	Train epoch 20: [64000/227502 (28%)]	Loss: 0.019532	Train epoch 20: [128000/227502 (56%)]	Loss: 0.026001	Train epoch 20: [192000/227502 (84%)]	Loss: 0.017113
+Test epoch 20: Average loss: 0.0953
+Saving Checkpoint model at epoch 20...
+	Train epoch 21: [0/227502 (0%)]	Loss: 0.013796	Train epoch 21: [64000/227502 (28%)]	Loss: 0.020991	Train epoch 21: [128000/227502 (56%)]	Loss: 0.038015	Train epoch 21: [192000/227502 (84%)]	Loss: 0.021380
+Test epoch 21: Average loss: 0.0809
+	Train epoch 22: [0/227502 (0%)]	Loss: 0.029308	Train epoch 22: [64000/227502 (28%)]	Loss: 0.020327	Train epoch 22: [128000/227502 (56%)]	Loss: 0.018200	Train epoch 22: [192000/227502 (84%)]	Loss: 0.019344
+Test epoch 22: Average loss: 0.0953
+	Train epoch 23: [0/227502 (0%)]	Loss: 0.025103	Train epoch 23: [64000/227502 (28%)]	Loss: 0.024671	Train epoch 23: [128000/227502 (56%)]	Loss: 0.029072	Train epoch 23: [192000/227502 (84%)]	Loss: 0.029098
+Test epoch 23: Average loss: 0.0979
+	Train epoch 24: [0/227502 (0%)]	Loss: 0.025487	Train epoch 24: [64000/227502 (28%)]	Loss: 0.029348	Train epoch 24: [128000/227502 (56%)]	Loss: 0.016160	Train epoch 24: [192000/227502 (84%)]	Loss: 0.017961
+Test epoch 24: Average loss: 0.0845
+	Train epoch 25: [0/227502 (0%)]	Loss: 0.015692	Train epoch 25: [64000/227502 (28%)]	Loss: 0.007611	Train epoch 25: [128000/227502 (56%)]	Loss: 0.010630	Train epoch 25: [192000/227502 (84%)]	Loss: 0.032966
+Test epoch 25: Average loss: 0.0868
+Saving Checkpoint model at epoch 25...
+Saving model at filename: DomOHO_TN_MHA_Run1/models/fold0_final.pt
+...Classifier trained in  284.48527336120605  seconds
+Testing
+Data sample has input of shape:
+torch.Size([40, 6, 225])
+Test loss (MSE): 2.4123843686180207e-05
+Actual, prediction:
+tensor(0., device='cuda:0') tensor(0.0618, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0575, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0225, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1314, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0584, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0984, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1032, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1611, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0625, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0773, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1292, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0516, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0690, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0773, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1192, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0904, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1014, device='cuda:0')
+tensor(0., device='cuda:0') tensor(-0.0428, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0586, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0860, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0521, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1525, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0660, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0477, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0736, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0940, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0170, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0479, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0829, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0866, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0625, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0426, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0033, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1569, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0707, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.1259, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0602, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0770, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0477, device='cuda:0')
+tensor(0., device='cuda:0') tensor(0.0466, device='cuda:0')
