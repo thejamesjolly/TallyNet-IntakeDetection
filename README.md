@@ -35,22 +35,37 @@ with specific directions to run that directory's code.
 	* Contains reimplementation of [Roll Heuristic Benchmark](https://link.springer.com/article/10.1007/s10484-012-9194-1)[^DongHeurPaper],
 	which uses roll velocity and time thresholds to detect intake gestures.
 	
+- `Reimp_GRU`
+	* Contains reimplementation of [CNN-GRU for HAR](https://ieeexplore.ieee.org/abstract/document/11456926)[^SultanaGRU]
+	
 - `Reimp_HeydCNN`
 	* Contains reimplmentation of [Binary Classifier CNN-LSTM Benchmark](https://ieeexplore.ieee.org/document/9187203)[^HeydCNNPaper],
 	which uses 2 second inputs to predict the probability 
 	that the input is an intake gesture, 
 	and post-processes these probabilities into detections.
+
+- `Reimp_MHA`
+	* Contains reimplementation of [CNN-MHA for HAR](https://ieeexplore.ieee.org/abstract/document/10177901)[^Tan-MHA-HAR]
+
+- `Reimp_TCCSNet`
+	* Contains reimplementation of [TCCSNet and CSNet for HAR](https://www.sciencedirect.com/science/article/pii/S0950705123006172)[^EssaTCCSNet]
 	
-- `TallyNet`
+- `Reimp_TCN`
+	* Contains reimplementation of [TCN Eating Speed Intake Detection](https://ieeexplore.ieee.org/document/10584254)[^WangTcnEatingSpeed]
+
+
+- `TallyNet_PyTorch`
 	* Proposed novel approach for intake detection,
 	which provides a model with long input windows and trains the model
 	to predict the total number (the tally) of intakes in the window.
 	Decoding these tallies across the meal produce a set of detections 
 	for when the events happened.
+	* Uses a PyTorch Environment
 	* Window size can be set to any value 
-	(windows smaller than 5 seconds may require modifications to the 
-	CNN kernel sizes),
 	with results in this paper spanning 5, 10, 15, 20, and 25 seconds.
+	
+- `TallyNet_TensorFlow`
+	* Alternative Setup of TallyNet code which can operate in a TensorFlow environment
 	
 - `ImprovementsToMake.txt`
 	* A file with potential future changes to make to the code.
@@ -130,6 +145,28 @@ and Extended Prefix Beam Search,"
 in IEEE Journal of Biomedical and Health Informatics, vol. 25, no. 7, pp. 2733-2743, July 2021, 
 doi: 10.1109/JBHI.2020.3046613.
 keywords: {Decoding;Monitoring;Training;Task analysis;Timing;Estimation;Biological system modeling;CTC;deep learning;dietary monitoring;inertial and video sensors;intake gesture detection}
+
+[^SultanaGRU]: N. Sultana, S. Afrida, B. Akter, T. Jahan, A. Ahmed, M. A. Yousuf, and
+M. Z. Uddin, “Explainable cnn-gru model with self-attention for human
+activity recognition using wearable sensors through data augmentation,”
+IEEE Access, vol. 14, pp. 48 448–48 477, 2026.
+
+[^Tan-MHA-HAR]: T.-H. Tan, Y.-L. Chang, J.-R. Wu, Y.-F. Chen, and M. Alkhaleefah,
+“Convolutional neural network with multihead attention for human
+activity recognition,” IEEE Internet of Things Journal, vol. 11, no. 2,
+pp. 3032–3043, 2024.
+
+[^EssaTCCSNet]: E. Essa and I. R. Abdelmaksoud, 
+“Temporal-channel convolution with self-attention network 
+for human activity recognition using wearable sensors,”
+Knowledge-Based Systems, vol. 278, p. 110867, 2023.
+
+[^WangTcnEatingSpeed]: C. Wang, T. S. Kumar, W. De Raedt, 
+G. Camps, H. Hallez, and B. Vanrumste, 
+“Eating speed measurement using wrist-worn imu sensors
+ towards free-living environments,” 
+IEEE Journal of Biomedical and Health Informatics,
+ vol. 28, no. 10, pp. 5816–5828, 2024
 
 [^OrebaDataPaper]: P. V. Rouast, H. Heydarian, M. T. P. Adam and M. E. Rollo,
 "OREBA: A Dataset for Objectively Recognizing Eating Behavior and Associated Intake," 
